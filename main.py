@@ -1,8 +1,8 @@
 from flask import Flask, render_template
 
 from summary import Summary
-from bets import team_cooler, betting_summary
-from models import team_summary
+from betsDeleteMe import betting_summary
+
 
 app = Flask(__name__)
 
@@ -19,8 +19,6 @@ def index():
     return render_template(
         "beer.html",
         betting_summary=betting_summary,
-        team_summary=team_summary,
-        team_cooler=team_cooler,
         coolers=betting_summary.total_beers_owed,
     )
 
