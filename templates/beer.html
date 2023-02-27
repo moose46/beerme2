@@ -9,7 +9,7 @@
                 <td align="center"><img src="../static/beer.png" width="20" height="40"></td>
             </tr>
         </table>
-        <hr class="myHr">
+        <hr style="color:bisque">
         <table width="100%" align="center">
             <tr>
                 <th class="left-th"><span class="badge bg-secondary text-light">Race</span></th>
@@ -21,7 +21,7 @@
                     <td style="color: #FFB500" class="left-td"><span class="badge bg-dark ">{{ b.race_name[0:8] }}:</span>
                     </td>
                     <td> <span
-                            class="badge bg-warning text-dark">{{ b.greg.driver_name[0:8] }}
+                            class="badge bg-warning text-dark">{{ b.greg.driver_name[0:12] }}
                         {% if b.greg.finish == 0 %}
                             N/A
                         {% else %}
@@ -36,7 +36,7 @@
                         {% endif %}
                     </td>
                     <td><span
-                            class="badge bg-warning text-dark">{{ b.bob.driver_name[0:8] }}
+                            class="badge bg-warning text-dark">{{ b.bob.driver_name[0:12] }}
                         {% if b.bob.finish == 0 %}
                             N/A
                         {% else %}
@@ -85,13 +85,13 @@
                 </tr>
             {% endfor %}
         </table>
-        <table>
+        <hr style="color:white">
+        <table align="center">
             <tr>
-                <td class="center">
-                    <blockquote class="blockquote text-light">
-                        <p class="center">Greg owes 1 <img src="../static/beer.png" width="10" height="20"> to Sweeney</p>
+                <td>
+                    <blockquote class="blockquote text-light align-center">
+                        <p><h6>Greg owes 1 <img src="../static/beer.png" width="10" height="20"> to Sweeney</h6></p>
                         <p><h6>Greg owes one beer, non-payment interest to Bob &nbsp;<img src="../static/beer.png" width="10" height="20">
-                        <p><h6>Greg owes one beer, delay of game penalty (Bristol) to Bob &nbsp;<img src="../static/beer.png" width="10" height="20">
                         <p><h6>Bob's 2022 Cooler <img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20">
                         <p><h6>Bob's 2021 Cooler <img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20"><img src="../static/beer.png" width="10" height="20">
                     </h6></p>
@@ -99,6 +99,6 @@
                 </td>
             </tr>
         </table>
-        <h6 class="text-light" align="right">Powered by a Python ~~~~``</h6>
+        <h6 class="text-light" align="right">Powered by a Python ~~~~~~~``</h6>
     </div>
 {% endblock %}
