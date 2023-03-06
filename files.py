@@ -107,13 +107,14 @@ class ProcessDataFiles:
             "Greg": "Ryan Blaney",
             "Bob": "Joey Logano",
         }
-        # self.team_bet = defaultdict(list)
-        # bets = [('02-20-2022','Denny Hamlin', 'Brad Keselowski')]
-        # self.team_bet['Greg'] = ["Ryan Blaney", "Joey Logano", "Brad Keselowski"]
-        # self.team_bet['Bob'] = ["Martin Truex Jr.", "Denny Hamlin", "Kyle Busch"]
+        self.individual_bets["03-05-2023"] = {
+            "Greg": "Kyle Larson",
+            "Bob": "Kyle Busch",
+        }
+        # print(self.individual_bets)
 
     def read_data_files(self):
-        for f in file_path.glob("results*.txt"):
+        for f in file_path.glob("results*2023_.txt"):
             race_track = f.stem.split("_")[1]
 
             with open(Path(f"{f.parent}/{f.name}"), "r") as file:
@@ -121,7 +122,7 @@ class ProcessDataFiles:
                 # csv file must have header
                 rawResult = namedtuple("rawResult", next(reader), rename=True)
                 # Result = namedtuple('Result', [*rawResult._fields, 'picked_by', 'race_date', 'race_track'])
-                # print(f.name)
+                print(f.name)
                 for row in reader:
                     # try:
                     result = rawResult(*row)  # unpack csv data row into the named tuple
@@ -163,6 +164,7 @@ class ProcessDataFiles:
                                     }
                                 )
                     # logging.info(result)
+                    # print(result)
 
         """
             Only data in the list is either a team bet or individual bet
@@ -180,4 +182,6 @@ class ProcessDataFiles:
 
 if __name__ == "__main__":
     p = ProcessDataFiles()
+
     race_results_data = p.read_data_files()
+    # print(race_results_data)

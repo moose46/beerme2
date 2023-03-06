@@ -81,10 +81,10 @@ for date, items in groupby(team_race_results, key=itemgetter("race_date")):
     for i in items:
         if i["player_name"] == "Bob":
             bobs_total_team_points += i["finish"]  # add the finish positions up
-            gibbs = bobs_total_team_points
+            # gibbs = bobs_total_team_points
         else:
             gregs_total_team_points += i["finish"]
-            penske = gregs_total_team_points
+            # penske = gregs_total_team_points
     if bobs_total_team_points > gregs_total_team_points:
         winner_name = "Greg"
     else:
