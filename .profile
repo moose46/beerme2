@@ -1,0 +1,2 @@
+VAR='ME'
+echo $VAR
