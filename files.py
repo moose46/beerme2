@@ -119,6 +119,10 @@ class ProcessDataFiles:
             "Greg": "Kyle Busch",
             "Bob": "Joey Logano",
         }
+        self.individual_bets["03-26-2023"] = {
+            "Greg": "Tyler Reddick",
+            "Bob": "Ross Chastain",
+        }
         # print(self.individual_bets)
 
     def read_data_files(self):
