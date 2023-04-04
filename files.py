@@ -23,37 +23,107 @@ logging.basicConfig(
 )
 DriverBet = namedtuple("DriverBet", "date, person_name, driver_name")
 
-individual_bets = defaultdict(list)
-# individual_bets.setdefault("missing_key")
-individual_bets["02-19-2023"] = {
-    "Greg": "Kyle Larson",
-    "Bob": "Ryan Blaney",
-}
-individual_bets["02-26-2023"] = {
-    "Greg": "Ryan Blaney",
-    "Bob": "Joey Logano",
-}
-individual_bets["03-05-2023"] = {
-    "Greg": "Kyle Larson",
-    "Bob": "Kyle Busch",
-}
-individual_bets["03-12-2023"] = {
-    "Greg": "Ryan Blaney",
-    "Bob": "William Byron",
-}
-individual_bets["03-19-2023"] = {
-    "Greg": "Kyle Busch",
-    "Bob": "Joey Logano",
-}
-individual_bets["03-26-2023"] = {
-    "Greg": "Tyler Reddick",
-    "Bob": "Ross Chastain",
-}
-
 
 class ProcessDataFiles:
-    def __init__(self) -> None:
+    def __init__(self):
         self.race_schedule_results = []
+        self.bets_team = []
+        self.individual_bets = defaultdict(list)
+        self.individual_bets.setdefault("missing_key")
+        # self.individual_bets['02-14-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Brad Keselowski'}
+        # self.individual_bets['02-21-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Chase Elliott'}
+        # self.individual_bets['02-28-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Denny Hamlin'}
+        # self.individual_bets['03-07-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Martin Truex Jr.'}
+        # self.individual_bets['03-14-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Chase Elliott'}
+        # self.individual_bets['03-21-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Martin Truex Jr.'}
+        # self.individual_bets['03-28-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Kyle Larson'}
+        # self.individual_bets['04-10-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Denny Hamlin'}
+        # self.individual_bets['04-18-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Martin Truex Jr.'}
+        # self.individual_bets['04-25-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Denny Hamlin'}
+        # self.individual_bets['05-02-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Brad Keselowski'}
+        # self.individual_bets['05-09-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Kyle Larson'}
+        # self.individual_bets['05-16-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Martin Truex Jr.'}
+        # self.individual_bets['05-23-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Kyle Larson'}
+        # self.individual_bets['05-30-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Chase Elliott'}
+        # self.individual_bets['06-06-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Kyle Larson'}
+        # self.individual_bets['06-20-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Kyle Larson'}
+        # self.individual_bets['06-27-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Kyle Busch'}
+        # self.individual_bets['07-04-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'William Byron'}
+        # self.individual_bets['07-11-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Kyle Busch'}
+        # self.individual_bets['08-08-2021'] = {'Greg': 'Chase Elliott', 'Bob': 'Ryan Blaney'}
+        # self.individual_bets['08-15-2021'] = {'Greg': 'Kyle Larson', 'Bob': 'William Byron'}
+        # self.individual_bets['08-22-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Kyle Larson'}
+        # self.individual_bets['08-28-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Denny Hamlin'}
+        # self.individual_bets['09-05-2021'] = {'Greg': 'Ryan Blaney', 'Bob': 'Kyle Busch'}
+        # self.individual_bets['09-11-2021'] = {'Greg': 'Kyle Larson', 'Bob': 'Denny Hamlin'}
+        # self.individual_bets['09-18-2021'] = {'Greg': 'Denny Hamlin', 'Bob': 'Kyle Larson'}
+        # self.individual_bets['09-26-2021'] = {'Greg': 'Kyle Larson', 'Bob': 'Ryan Blaney'}
+        # self.individual_bets['10-03-2021'] = {'Greg': 'Joey Logano', 'Bob': 'Denny Hamlin'}
+        # self.individual_bets['10-10-2021'] = {'Greg': 'Kyle Larson', 'Bob': 'Chase Elliott'}
+        # self.individual_bets['10-17-2021'] = {'Greg': 'Denny Hamlin', 'Bob': 'Kyle Larson'}
+        # self.individual_bets['10-24-2021'] = {'Greg': 'Kyle Larson', 'Bob': 'Denny Hamlin'}
+        # self.individual_bets['10-31-2021'] = {'Greg': 'Denny Hamlin', 'Bob': 'Martin Truex Jr.'}
+        # self.individual_bets['11-07-2021'] = {'Greg': 'Denny Hamlin', 'Bob': 'Brad Keselowski'}
+        # self.individual_bets['02-20-2022'] = {'Greg': 'Denny Hamlin', 'Bob': 'Brad Keselowski'}
+        # self.individual_bets['02-27-2022'] = {'Greg': 'Chase Elliott', 'Bob': 'Ryan Blaney'}
+        # self.individual_bets['03-06-2022'] = {'Greg': 'Ryan Blaney', 'Bob': 'Joey Logano'}
+        # self.individual_bets['03-13-2022'] = {'Greg': 'Martin Truex Jr.', 'Bob': 'Christopher Bell'}
+        # self.individual_bets['03-20-2022'] = {'Greg': 'Chase Elliott', 'Bob': 'Ryan Blaney'}
+        # self.individual_bets['03-27-2022'] = {'Greg': 'Chase Elliott', 'Bob': 'Alex Bowman'}
+        # self.individual_bets['04-04-2022'] = {'Greg': 'William Byron', 'Bob': 'Alex Bowman'}
+        # self.individual_bets['04-09-2022'] = {'Greg': 'Chase Elliott', 'Bob': 'William Byron'}
+        # self.individual_bets['04-17-2022'] = {'Greg': 'Ryan Blaney', 'Bob': 'Christopher Bell'}
+        # self.individual_bets['04-24-2022'] = {'Greg': 'Ryan Blaney', 'Bob': 'Daniel Suarez'}
+        # self.individual_bets['05-02-2022'] = {'Greg': 'Chase Elliott', 'Bob': 'Denny Hamlin'}
+        # self.individual_bets['05-08-2022'] = {'Greg': 'Martin Truex Jr.', 'Bob': 'Joey Logano'}
+        # self.individual_bets['05-15-2022'] = {'Greg': 'Chase Elliott', 'Bob': 'Kyle Busch'}
+        # self.individual_bets['05-22-2022'] = {'Greg': 'Kyle Busch', 'Bob': 'William Byron'}
+        # self.individual_bets['05-29-2022'] = {'Greg': 'Kyle Busch', 'Bob': 'Denny Hamlin'}
+        # self.individual_bets['06-05-2022'] = {'Greg': 'Kyle Busch', 'Bob': 'Ryan Blaney'}
+        # self.individual_bets['06-10-2022'] = {'Greg': 'Ross Chastain', 'Bob': 'Chase Elliott'}
+        # self.individual_bets['06-26-2022'] = {'Greg': 'Chase Elliott', 'Bob': 'Ross Chastain'}
+        # self.individual_bets['07-03-2022'] = {'Greg': 'Chase Briscoe', 'Bob': 'Chase Elliott'}
+        # self.individual_bets['07-10-2022'] = {'Greg': 'Chase Elliott', 'Bob': 'Ross Chastain'}
+        # self.individual_bets['07-17-2022'] = {'Greg': 'Ryan Blaney', 'Bob': 'Chase Elliott'}
+        # self.individual_bets['07-23-2022'] = {'Greg': 'Dave Blaney', 'Bob': 'Marco Andretti'}
+        # self.individual_bets['07-24-2022'] = {'Greg': 'Ryan Blaney', 'Bob': 'Chase Elliott'}
+        # self.individual_bets['07-31-2022'] = {'Greg': 'Chase Elliott', 'Bob': 'Tyler Reddick'}
+        # self.individual_bets['08-07-2022'] = {'Greg': 'Kyle Busch', 'Bob': 'Denny Hamlin'}
+        # self.individual_bets['08-14-2022'] = {'Greg': 'Martin Truex Jr.', 'Bob': 'Ross Chastain'}
+        # self.individual_bets['08-21-2022'] = {'Greg':'Chase Elliott', 'Bob': 'Chris Buescher'}
+        # self.individual_bets['08-28-2022'] = {'Greg': 'Ryan Blaney', 'Bob': 'Joey Logano'}
+        # self.individual_bets['09-04-2022'] = {'Greg': 'Denny Hamlin', 'Bob': 'Tyler Reddick'}
+        # self.individual_bets['09-11-2022'] = {'Greg': 'Denny Hamlin', 'Bob': 'Tyler Reddick'}
+        # self.individual_bets['09-18-2022'] = {'Greg': 'Chase Elliott', 'Bob': 'Christopher Bell'}
+        # self.individual_bets['09-25-2022'] = {'Greg': 'Ryan Blaney', 'Bob': 'Joey Logano'}
+        # self.individual_bets['10-02-2022'] = {'Greg': 'Denny Hamlin', 'Bob': 'Ross Chastain'}
+        # self.individual_bets['10-09-2022'] = {'Greg': 'Chase Elliott', 'Bob': 'Tyler Reddick'}
+        # self.individual_bets['10-16-2022'] = {'Greg': 'Ryan Blaney', 'Bob': 'Tyler Reddick'}
+        self.individual_bets["02-19-2023"] = {
+            "Greg": "Kyle Larson",
+            "Bob": "Ryan Blaney",
+        }
+        self.individual_bets["02-26-2023"] = {
+            "Greg": "Ryan Blaney",
+            "Bob": "Joey Logano",
+        }
+        self.individual_bets["03-05-2023"] = {
+            "Greg": "Kyle Larson",
+            "Bob": "Kyle Busch",
+        }
+        self.individual_bets["03-12-2023"] = {
+            "Greg": "Ryan Blaney",
+            "Bob": "William Byron",
+        }
+        self.individual_bets["03-19-2023"] = {
+            "Greg": "Kyle Busch",
+            "Bob": "Joey Logano",
+        }
+        self.individual_bets["03-26-2023"] = {
+            "Greg": "Tyler Reddick",
+            "Bob": "Ross Chastain",
+        }
+        # print(self.individual_bets)
 
     def read_data_files(self):
         for f in file_path.glob("results*2023_.txt"):
