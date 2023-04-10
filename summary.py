@@ -1,5 +1,5 @@
-__author__ = 'Robert W. Curtiss'
-__project__ = 'flask-by-example'
+__author__ = "Robert W. Curtiss"
+__project__ = "flask-by-example"
 import logging
 
 # https://www.youtube.com/watch?v=1aHNs1aEATg&list=PLLjmbh6XPGK4ISY747FUHXEl9lBxre4mM&index=7
@@ -10,7 +10,6 @@ import logging
 
 
 class Summary(object):
-
     def __init__(self, list_of_individual_bets):
         """
 
@@ -18,15 +17,25 @@ class Summary(object):
         """
         self.list_of_individual_bets = list_of_individual_bets
         bob_beers = len([x for x in self.list_of_individual_bets if x.bob.beers == 1])
-        bob_beers = bob_beers + len([x for x in self.list_of_individual_bets if x.bob.beers == 2]) * 2
+        bob_beers = (
+            bob_beers
+            + len([x for x in self.list_of_individual_bets if x.bob.beers == 2]) * 2
+        )
         greg_beers = len([x for x in self.list_of_individual_bets if x.greg.beers == 1])
-        greg_beers = greg_beers + len([x for x in self.list_of_individual_bets if x.greg.beers == 2]) * 2
+        greg_beers = (
+            greg_beers
+            + len([x for x in self.list_of_individual_bets if x.greg.beers == 2]) * 2
+        )
 
+        # print(f"bob_beers = {bob_beers}")
+        # print(f"greg_beers = {greg_beers}")
         if greg_beers > bob_beers:
             gregs_cooler = greg_beers - bob_beers
             bobs_cooler = 0
         else:
             bobs_cooler = bob_beers - greg_beers
             gregs_cooler = 0
-        self.total_beers_owed = {'Bob': bobs_cooler, 'Greg': gregs_cooler}
-        logging.info(self.total_beers_owed)
+        self.total_beers_owed = {"Bob": bobs_cooler, "Greg": gregs_cooler}
+
+    def __repr__(self) -> str:
+        return f"Summary() = \n{self.list_of_individual_bets}\n{self.total_beers_owed}"

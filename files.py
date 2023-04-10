@@ -127,6 +127,10 @@ class ProcessDataFiles:
             "Greg": "Kyle Larson",
             "Bob": "Kevin Harvick",
         }
+        self.individual_bets["04-09-2023"] = {
+            "Greg": "Kyle Larson",
+            "Bob": "Tyler Reddick",
+        }
 
         # print(self.individual_bets)
 
@@ -153,9 +157,9 @@ class ProcessDataFiles:
                         "01-01-2023", DATE_FORMAT
                     ):
                         # loop through the bets and check for a driver in the results, if found add to the results list
-                        for name in individual_bets[race_date]:
+                        for name in self.individual_bets[race_date]:
                             # the key [race_date][name] returns the driver name
-                            if individual_bets[race_date][name] == result.DRIVER:
+                            if self.individual_bets[race_date][name] == result.DRIVER:
                                 parts = race_track.split(
                                     " "
                                 )  # look to see if the filename has spaces in it
