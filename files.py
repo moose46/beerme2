@@ -139,6 +139,10 @@ class ProcessDataFiles:
             "Greg": "Ryan Blaney",
             "Bob": "Aric Almirola",
         }
+        self.individual_bets["04-30-2023"] = {
+            "Greg": "Kyle Larson",
+            "Bob": "William Byron",
+        }
 
         # print(self.individual_bets)
 
