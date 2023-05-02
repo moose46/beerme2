@@ -1,19 +1,18 @@
 # from ast import Dict
 from collections import defaultdict
 
-
-Talladega = defaultdict(list)
-Talladega["Joey Logano"] = {
-    "points": 12000,
-}
-Talladega["Ryan Blaney"] = {
-    "points",
-    11000,
-}
-Talladega["Denny Hamlin"] = {
-    "points",
-    11000,
-}
+# Talladega = defaultdict(list)
+# Talladega["Joey Logano"] = {
+#     "points": 12000,
+# }
+# Talladega["Ryan Blaney"] = {
+#     "points",
+#     11000,
+# }
+# Talladega["Denny Hamlin"] = {
+#     "points",
+#     11000,
+# }
 Talladega = {"Joey Logano": 12000, "Ryan Blaney": 11000, "Denny Hamlin": 9000}
 print(Talladega)
 print(Talladega["Joey Logano"])
@@ -30,7 +29,7 @@ def subset_sum(numbers, target, partial=[]):
 
     # check if the partial sum is equals to target
     if s == target:
-        print("sum(%s)=%s" % (partial, target))
+        # print("sum(%s)=%s" % (partial, target))
         total.append(partial)
     if s >= target:
         return  # if we reach the number why bother to continue
@@ -42,5 +41,11 @@ def subset_sum(numbers, target, partial=[]):
 
 
 if __name__ == "__main__":
+    # find all compinations that ad up to 50,000
     subset_sum([12000, 11000, 10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000], 50000)
-    print(total)
+    # remove any duplicate combinations
+    for a in total:
+        for b in total:
+            if a == b:
+                total.remove(b)
+    print(sorted(total))
