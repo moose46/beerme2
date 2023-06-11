@@ -53,6 +53,7 @@ for date, items in groupby(individual_race_results, key=itemgetter("race_date"))
                         player_name=wager.gregs_bet["player_name"],
                         beers=wager.gregs_bet["beers"],
                         car_number=wager.gregs_bet["car_number"],
+                        badge_color=player["badge_color"],
                     ),
                     bob=Entry(
                         driver_name=wager.bobs_bet["driver_name"],
@@ -60,7 +61,9 @@ for date, items in groupby(individual_race_results, key=itemgetter("race_date"))
                         player_name=wager.bobs_bet["player_name"],
                         beers=wager.bobs_bet["beers"],
                         car_number=wager.bobs_bet["car_number"],
+                        badge_color=player["badge_color"],
                     ),
+                    badge_color=player["badge_color"],
                 )
             )
 
