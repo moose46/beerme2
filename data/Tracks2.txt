@@ -1,0 +1,85 @@
+Track   Address Length  Configuration   Owner
+Atlanta Motor Speedway	Hampton, GA	1.540	Intermediate	Speedway Motorsports	
+TICKETS
+Auto Club Speedway	Fontana, CA	2.000	Superspeedway	NASCAR	
+TICKETS
+Bristol Motor Speedway	Bristol, TN	.533	Short Track	Speedway Motorsports	
+TICKETS
+Bristol Motor Speedway Dirt	Bristol, TN	.533	Short Track	Speedway Motorsports	
+TICKETS
+Canadian Tire Motorsport Park	Bowmanville, ON	2.459	Road Course	Canadian Motorsports Ventures	
+TICKETS
+Charlotte Motor Speedway	Concord, NC	1.500	Intermediate	Speedway Motorsports	
+TICKETS
+Charlotte Motor Speedway Road Course	Concord, NC	2.320	Road Course	Speedway Motorsports	
+TICKETS
+Chicago Street Race	Chicago, IL	2.200	Road Course	NASCAR	
+TICKETS
+Chicagoland Speedway	Joliet, IL	1.500	Intermediate	NASCAR	
+TICKETS
+Circuit of The Americas	Austin, TX	3.427	Road Course	Circuit of the Americas LLC	
+TICKETS
+DAYTONA Road Course	Daytona Beach, FL	3.610	Road Course	NASCAR	
+TICKETS
+Darlington Raceway	Darlington, SC	1.366	Intermediate	NASCAR	
+TICKETS
+Daytona International Speedway	Daytona Beach, FL	2.500	Superspeedway	NASCAR	
+TICKETS
+Dover Motor Speedway	Dover, DE	1.000	Intermediate	Speedway Motorsports	
+TICKETS
+Eldora Speedway	Rossburg, OH	.500	Short Track	Tony Stewart/Stewart Haas Racing	
+TICKETS
+Homestead-Miami Speedway	Homestead, FL	1.500	Intermediate	NASCAR	
+TICKETS
+Indianapolis Motor Speedway	Speedway, IN	2.500	Speedway	Indianapolis Motor Speedway	
+TICKETS
+Indianapolis Motor Speedway Road Course	Speedway, IN	2.439	Road Course	Indianapolis Motor Speedway	
+TICKETS
+Iowa Speedway	Newton, IA	.875	Short Track	NASCAR	
+TICKETS
+Kansas Speedway	Kansas City, KS	1.500	Intermediate	NASCAR	
+TICKETS
+Kentucky Speedway	Sparta, KY	1.500	Intermediate	Speedway Motorsports	
+TICKETS
+Knoxville Raceway	Knoxville, IA	.500	Short Track	Marion County Fair Association	
+TICKETS
+Las Vegas Motor Speedway	Las Vegas, NV	1.500	Intermediate	Speedway Motorsports	
+TICKETS
+Los Angeles Memorial Coliseum	Los Angeles, CA	.250	Short Track	Los Angeles County	
+TICKETS
+Lucas Oil Indianapolis Raceway Park	Indianapolis, IN	.686	Short Track	NHRA	
+TICKETS
+Martinsville Speedway	Ridgeway, VA	.526	Short Track	NASCAR	
+TICKETS
+Michigan International Speedway	Brooklyn, MI	2.000	Intermediate	NASCAR	
+TICKETS
+Mid-Ohio Sports Car Course	Lexington, OH	2.258	Road Course	Green Savoree Mid-Ohio, LLC	
+TICKETS
+Milwaukee Mile	West Allis, Wisconsin	1.000	Superspeedway		
+TICKETS
+Nashville Superspeedway	Lebanon, TN	1.333	Intermediate	Dover Motorsports Inc.	
+TICKETS
+New Hampshire Motor Speedway	Loudon, NH	1.058	Intermediate	Speedway Motorsports	
+TICKETS
+North Wilkesboro Speedway	North Wilkesboro, NC	.625	Short Track	Speedway Motorsports	
+TICKETS
+Phoenix Raceway	Avondale, AZ	1.000	Intermediate	NASCAR	
+TICKETS
+Pocono Raceway	Long Pond, PA	2.500	Superspeedway	Mattioli Family	
+TICKETS
+Portland International Raceway	Portland, OR	1.900	Road Course	City of Portland	
+TICKETS
+Richmond Raceway	Richmond, VA	.750	Short Track	NASCAR	
+TICKETS
+Road America	Elkhart Lake, WI	4.048	Road Course	State Fair Park	
+TICKETS
+Sonoma Raceway	Sonoma, CA	1.990	Road Course	Speedway Motorsports	
+TICKETS
+Talladega Superspeedway	Talladega, AL	2.660	Superspeedway	NASCAR	
+TICKETS
+Texas Motor Speedway	Fort Worth, TX	1.500	Intermediate	Speedway Motorsports	
+TICKETS
+Watkins Glen International	Watkins Glen, NY	2.450	Road Course	NASCAR	
+TICKETS
+World Wide Technology Raceway	Madison, IL	1.250	Intermediate	Curtis Francois	
+TICKETS

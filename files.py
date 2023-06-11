@@ -20,7 +20,7 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s",
     filemode="w",
 )
-DriverBet = namedtuple("DriverBet", "date, person_name, driver_name")
+DriverBet = namedtuple("DriverBet", "date, person_name, driver_name, badge_color")
 
 
 class ProcessDataFiles:
@@ -28,53 +28,89 @@ class ProcessDataFiles:
         self.race_schedule_results = []
         self.bets_team = []
         self.individual_bets = defaultdict()
-        self.individual_bets.setdefault("missing_key")
+        # self.individual_bets.setdefault("missing_key")
         self.individual_bets["02-19-2023"] = {
             "Greg": "Kyle Larson",
             "Bob": "Ryan Blaney",
+            "badge_color": "#FFB500",
         }
         self.individual_bets["02-26-2023"] = {
             "Greg": "Ryan Blaney",
             "Bob": "Joey Logano",
+            "badge_color": "#FFB500",
         }
         self.individual_bets["03-05-2023"] = {
             "Greg": "Kyle Larson",
             "Bob": "Kyle Busch",
+            "badge_color": "#FFB500",
         }
         self.individual_bets["03-12-2023"] = {
             "Greg": "Ryan Blaney",
             "Bob": "William Byron",
+            "badge_color": "#FFB500",
         }
         self.individual_bets["03-19-2023"] = {
             "Greg": "Kyle Busch",
             "Bob": "Joey Logano",
+            "badge_color": "#FFB500",
         }
         self.individual_bets["03-26-2023"] = {
             "Greg": "Tyler Reddick",
             "Bob": "Ross Chastain",
+            "badge_color": "#FFB500",
         }
         self.individual_bets["04-02-2023"] = {
             "Greg": "Kyle Larson",
             "Bob": "Kevin Harvick",
+            "badge_color": "#FFB500",
         }
         self.individual_bets["04-09-2023"] = {
             "Greg": "Kyle Larson",
             "Bob": "Tyler Reddick",
+            "badge_color": "#FFB500",
         }
         self.individual_bets["04-16-2023"] = {
             "Greg": "William Byron",
             "Bob": "Tyler Reddick",
+            "badge_color": "#FFB500",
         }
+        # start of can't pick a driver twice
         self.individual_bets["04-23-2023"] = {
             "Greg": "Ryan Blaney",
             "Bob": "Aric Almirola",
+            "badge_color": "#C9FF00",
         }
         self.individual_bets["04-30-2023"] = {
             "Greg": "Kyle Larson",
             "Bob": "William Byron",
+            "badge_color": "#C9FF00",
         }
-
+        self.individual_bets["05-07-2023"] = {
+            "Greg": "William Byron",
+            "Bob": "Martin Truex Jr.",
+            "badge_color": "bg-warning",
+        }
+        self.individual_bets["05-14-2023"] = {
+            "Greg": "Denny Hamlin",
+            "Bob": "Kyle Larson",
+            "badge_color": '"bg-warning"',
+        }
+        self.individual_bets["05-28-2023"] = {
+            "Greg": "Chase Elliott",
+            "Bob": "Kyle Busch",
+            "badge_color": "bg-warning",
+        }
+        self.individual_bets["06-04-2023"] = {
+            "Greg": "Kevin Harvick",
+            "Bob": "Joey Logano",
+            "badge_color": "bg-warning",
+        }
+        # print(f"{self.individual_bets}")
         # print(self.individual_bets)
+
+    # @property
+    def bets(self):
+        return self.individual_bets
 
     def read_data_files(self):
         for f in file_path.glob("results*2023_.txt"):
@@ -108,7 +144,9 @@ class ProcessDataFiles:
                                 capitalized_parts = [
                                     p.capitalize() for p in parts
                                 ]  # cap first letter(s) of name
-
+                                # logging.critical(
+                                #     f'loopy={self.individual_bets[race_date]["badge_color"]}'
+                                # )
                                 self.race_schedule_results.append(  # add it to the results list
                                     {
                                         "race_date": race_date,
@@ -124,9 +162,12 @@ class ProcessDataFiles:
                                         "beers": 0,
                                         "team_bet": False,
                                         "car_number": result.CAR,
+                                        # "badge_color": self.individual_bets[race_date][
+                                        #     "badge_color"
+                                        # ],
                                     }
                                 )
-                    # logging.info(result)
+                    logging.info(f"line 170 = {result}")
                     # print(result)
 
         """
@@ -139,7 +180,7 @@ class ProcessDataFiles:
             key=itemgetter("race_date", "team_bet", "player_name"),
         )
         for b in sorted_race_results:
-            logging.info(b)
+            logging.info(f"x={b}")
         return sorted_race_results
 
 
@@ -147,4 +188,5 @@ if __name__ == "__main__":
     p = ProcessDataFiles()
 
     race_results_data = p.read_data_files()
-    # print(race_results_data)
+    for x in race_results_data:
+        logging.info(f"files.py->race_results->{x}")
