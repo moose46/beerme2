@@ -29,9 +29,11 @@
                         {% endif %}</span>
                         {% if b.greg.beer == 1 %}
                             <img src="../static/beer.png" width="10" height="20">
-                            {% if b.greg.finish == 1 %}
+                        
+                        {% endif %}
+                        {% if b.greg.beer == 2 %}
                                 <img src="../static/beer.png" width="10" height="20">
-                            {% endif %}
+                                <img src="../static/beer.png" width="10" height="20">
                             </td>
                         {% endif %}
                     </td>
@@ -44,9 +46,10 @@
                         {% endif %}</span>
                         {% if b.bob.beer == 1 %}
                             <img src="../static/beer.png" width="10" height="20">
-                            {% if b.bob.finish == 1 %}
+                        {% endif %}
+                        {% if b.bob.beer == 2 %}
                                 <img src="../static/beer.png" width="10" height="20">
-                            {% endif %}
+                                <img src="../static/beer.png" width="10" height="20">
                         {% endif %}
                     </td>
                 </tr>

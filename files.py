@@ -5,7 +5,8 @@ from collections import defaultdict, namedtuple
 from operator import itemgetter
 from pathlib import Path
 from time import strptime
-from bet_data import BetData
+
+from betData import BetData
 
 DATE_FORMAT = "%m-%d-%Y"
 file_path = Path.home() / "beerme" / "data"
@@ -25,42 +26,50 @@ DriverBet = namedtuple("DriverBet", "date, person_name, driver_name, badge_color
 
 
 class ProcessDataFiles:
+    """_summary_Reads data/results* txt files for the results of all races in the data directory"""
+
     def __init__(self):
+        # a list of all race results
         self.race_schedule_results = []
-        self.bets_team = []
         # print(f"{self.individual_bets}")
         # print(self.individual_bets)
+        # creates a class that reads the races results data files
         data = BetData()
-        self.individual_bets = data.get_bets()
+        self.individual_bets = data.get_bets
 
     # @property
     def bets(self):
+        """Return a list of dictionaries of all the bets for Bob and Greg"""
         return self.individual_bets
 
     def read_data_files(self):
+        # find all the results for all the races in the data directory that match the results*2023_.txt pattern
         for f in file_path.glob("results*2023_.txt"):
             race_track = f.stem.split("_")[1]
-
+            race_date = re.findall(r"\d+-\d+-\d+", f.name)[
+                0
+            ]  # get the date from the file name
+            print(f"Processing {race_track.capitalize()} - {race_date}")
+            # read each file
             with open(Path(f"{f.parent}/{f.name}"), "r") as file:
                 reader = csv.reader(file, delimiter="\t")
                 # csv file must have header
                 rawResult = namedtuple("rawResult", next(reader), rename=True)
                 # Result = namedtuple('Result', [*rawResult._fields, 'picked_by', 'race_date', 'race_track'])
-                print(f.name)
+                # print(f.name)
                 for row in reader:
                     # try:
                     result = rawResult(*row)  # unpack csv data row into the named tuple
                     # except Exception as e:
                     #     print(f.name)
 
-                    race_date = re.findall(r"\d+-\d+-\d+", f.name)[
-                        0
-                    ]  # get the date from the file name
                     if strptime(race_date, DATE_FORMAT) > strptime(
                         "01-01-2023", DATE_FORMAT
                     ):
                         # loop through the bets and check for a driver in the results, if found add to the results list
-                        for name in self.individual_bets[race_date]:
+                        for name in self.individual_bets[
+                            race_date
+                        ]:  # get the bet data for the this race data
                             # the key [race_date][name] returns the driver name
                             if self.individual_bets[race_date][name] == result.DRIVER:
                                 parts = race_track.split(
@@ -69,10 +78,8 @@ class ProcessDataFiles:
                                 capitalized_parts = [
                                     p.capitalize() for p in parts
                                 ]  # cap first letter(s) of name
-                                # logging.critical(
-                                #     f'loopy={self.individual_bets[race_date]["badge_color"]}'
-                                # )
-                                self.race_schedule_results.append(  # add it to the results list
+                                # add results of the race and the bet data for this player to the list of results
+                                self.race_schedule_results.append(
                                     {
                                         "race_date": race_date,
                                         "race_track": " ".join(
@@ -84,29 +91,23 @@ class ProcessDataFiles:
                                         "driver_name": result.DRIVER,
                                         "finish": int(result.POS),
                                         "player_name": name,
-                                        "beers": 0,
-                                        "team_bet": False,
+                                        "beers": 1 if int(result.POS) == 0 else 0,
                                         "car_number": result.CAR,
                                         "badge_color": self.individual_bets[race_date][
                                             "badge_color"
                                         ],
                                     }
                                 )
-                    logging.info(f"line 170 = {result}")
+                    # logging.info(f"line 170 = {result}")
                     # print(result)
 
-        """
-            Only data in the list is either a team bet or individual bet
-            , separated by team_bet, either true or false
-           sort the list by race_date, team_bet and player name (greg or bob) 
-        """
-        sorted_race_results = sorted(
+        # for b in self.race_schedule_results:
+        #     logging.info(f"files.py race ={b}")
+        return sorted(
             self.race_schedule_results,
-            key=itemgetter("race_date", "team_bet", "player_name"),
+            key=itemgetter("race_date", "player_name"),
         )
-        for b in sorted_race_results:
-            logging.info(f"x={b}")
-        return sorted_race_results
+        # return sorted_race_results
 
 
 if __name__ == "__main__":

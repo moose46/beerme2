@@ -23,16 +23,15 @@ logging.basicConfig(
     filemode="w",
 )
 
-p = ProcessDataFiles()
-# read all results*.txt files for 2021 and the drivers finish position
+# read all results*.txt files for 2023 and the drivers finish position
 # for bets that greg and bob placed
+p = ProcessDataFiles()
 race_results = p.read_data_files()
-individual_race_results = list(
-    filter(lambda results: not results["team_bet"], race_results)
-)
-team_race_results = list(filter(lambda results: results["team_bet"], race_results))
+individual_race_results = list(race_results)
+
+# team_race_results = list(filter(lambda results: results["team_bet"], race_results))
 list_of_individual_bets = []
-team_bets = []
+
 wager = MyWager()
 # go through the raw results list and sort out team from individual bets
 for date, items in groupby(individual_race_results, key=itemgetter("race_date")):
@@ -68,58 +67,6 @@ for date, items in groupby(individual_race_results, key=itemgetter("race_date"))
             )
 
 # beers count has already been scored
-for l in list_of_individual_bets:
-    logging.info(f"bets.py->list_of_individul_bets {l}")
+# for l in list_of_individual_bets:
+#     logging.info(f"bets.py->list_of_individul_bets {l}")
 betting_summary = Summary(list_of_individual_bets)
-logging.info(f"bets.py->betting_summary = {betting_summary}")
-final_team = []
-total_bob = 0
-total_greg = 0
-
-list_of_team_bets = []
-for date, items in groupby(team_race_results, key=itemgetter("race_date")):
-    bobs_total_team_points = 0
-    gregs_total_team_points = 0
-    penske = 0
-    gibbs = 0
-    for i in items:
-        if i["player_name"] == "Bob":
-            bobs_total_team_points += i["finish"]  # add the finish positions up
-            # gibbs = bobs_total_team_points
-        else:
-            gregs_total_team_points += i["finish"]
-            # penske = gregs_total_team_points
-    if bobs_total_team_points > gregs_total_team_points:
-        winner_name = "Greg"
-    else:
-        winner_name = "Bob"
-    # list of results of all team bets one for each race and the total points for each better
-    # list_of_team_bets.append(
-    #     {
-    #         "race_track": i["race_track"],
-    #         "bob": bobs_total_team_points,
-    #         "greg": gregs_total_team_points,
-    #         "winner": winner_name,
-    #     }
-    # )
-    # team total points for penske and gibbs
-    # final_team.append(
-    #     {
-    #         "race_name": i["race_track"],
-    #         "Greg": gregs_total_team_points < bobs_total_team_points,
-    #         "Bob": bobs_total_team_points < gregs_total_team_points,
-    #         "Penske": penske,
-    #         "Gibbs": gibbs,
-    #     }
-    # )
-
-# count the number of times bob or greg has won
-# total_bob = len([t for t in list_of_team_bets if t["winner"] == "Bob"])
-# total_greg = len([t for t in list_of_team_bets if t["winner"] == "Greg"])
-# if total_bob > total_greg:
-#     total_bob = total_bob - total_greg
-#     total_greg = 0
-# else:
-#     total_greg = total_greg - total_bob
-#     total_bob = 0
-# team_cooler = {"Bob": total_bob, "Greg": total_greg}

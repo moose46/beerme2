@@ -5,6 +5,8 @@ __project__ = "flask-by-example"
 # Author: Robert W. Curtiss
 # beerbet.py was created on March 31 2021 @ 6:34 PM
 # Project: PythonGoogleWeb
+import logging
+
 from entry import Entry
 
 
@@ -18,18 +20,22 @@ class BeerBet(Entry):
         self.greg = greg
         self.race_name = race_name
         self.badge_color = badge_color
+        self.bob.beer = (
+            bob.beers
+        )  # bob.beers will have a 1 in it, if his guy finished 1st
+        self.greg.beer = (
+            greg.beers
+        )  # greg.beers will have a 1 in it, if his guy finished 1st
 
     def the_winner(self):
-        self.bob.beer = 0
-        self.greg.beer = 0
-        if self.greg.finish > self.bob.finish:
-            self.bob.beer = 1
-        elif self.greg.finish < self.bob.finish:
-            self.greg.beer = 1
+        # if self.greg.finish > self.bob.finish:
+        self.bob.beer = self.bob.beers
+        # elif self.greg.finish < self.bob.finish:
+        self.greg.beer = self.greg.beers
 
         return {
-            "Bob": self.bob.beer,
-            "Greg": self.greg.beer,
+            "Bob": self.bob.beers,
+            "Greg": self.greg.beers,
             "badge_color": self.badge_color,
         }
 

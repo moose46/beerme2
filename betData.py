@@ -89,5 +89,11 @@ class BetData:
             "badge_color": "bg-success text-light",
         }
 
+    @property
     def get_bets(self):
+        """_summary_
+
+        Returns:
+            Returns a list of dictionaries of all the current bet information for Greg and Bob
+        """
         return self.individual_bets

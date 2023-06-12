@@ -1,8 +1,8 @@
 from flask import Flask, render_template
 
-from summary import Summary
 from bets import betting_summary
 
+# from summary import Summary
 
 app = Flask(__name__)
 
@@ -23,6 +23,7 @@ def index():
     )
 
 
+# to run this server, python main,py 5000
 if __name__ == "__main__":
     # app.run(host="127.0.0.1", port=8089, debug=True)
     app.run(host="127.0.0.1", port=5000, debug=True)
