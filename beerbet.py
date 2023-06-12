@@ -20,12 +20,6 @@ class BeerBet(Entry):
         self.greg = greg
         self.race_name = race_name
         self.badge_color = badge_color
-        self.bob.beer = (
-            bob.beers
-        )  # bob.beers will have a 1 in it, if his guy finished 1st
-        self.greg.beer = (
-            greg.beers
-        )  # greg.beers will have a 1 in it, if his guy finished 1st
 
     def the_winner(self):
         # if self.greg.finish > self.bob.finish:

@@ -4,6 +4,7 @@ __project__ = "flask-by-example"
 # Author: Robert W. Curtiss
 # summary.py was created on March 31 2021 @ 6:39 PM
 # Project: PythonGoogleWeb
+# updated: 6/12/2023 rwc
 import logging
 
 

@@ -2,8 +2,6 @@ from flask import Flask, render_template
 
 from bets import betting_summary
 
-# from summary import Summary
-
 app = Flask(__name__)
 
 

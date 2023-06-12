@@ -23,17 +23,16 @@ logging.basicConfig(
     filemode="w",
 )
 
-# read all results*.txt files for 2023 and the drivers finish position
+# read all race results*.txt files for 2023 and the drivers finish position
 # for bets that greg and bob placed
 p = ProcessDataFiles()
 race_results = p.read_data_files()
 individual_race_results = list(race_results)
 
-# team_race_results = list(filter(lambda results: results["team_bet"], race_results))
 list_of_individual_bets = []
 
 wager = MyWager()
-# go through the raw results list and sort out team from individual bets
+# assenble the wager, correlated by race date for Bob and Greg
 for date, items in groupby(individual_race_results, key=itemgetter("race_date")):
     wager.reset()  # zero out one bet
     for player in items:
@@ -41,7 +40,8 @@ for date, items in groupby(individual_race_results, key=itemgetter("race_date"))
         operator.methodcaller(player["player_name"].lower(), player)(wager)
         # if both bets have been placed create a beer bet
         if wager.enabled():
-            wager.brew_some_beer()
+            logging.info(f"wager = {wager}")
+            wager.brew_some_beer()  # award 1 or 2 beers to the winner
             # list_of_individual_bets.append(wager)
             list_of_individual_bets.append(
                 BeerBet(

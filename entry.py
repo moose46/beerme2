@@ -5,14 +5,14 @@ __project__ = "flask-by-example"
 # Author: Robert W. Curtiss
 # entry.py was created on March 31 2021 @ 6:32 PM
 # Project: PythonGoogleWeb
-from racefan import RaceFan
+# from racefan import RaceFan
 
 
-class Entry(RaceFan):
+class Entry:
     def __init__(
         self, player_name, badge_color, finish=0, driver_name="", beers=0, car_number=99
     ):
-        RaceFan.__init__(self, player_name)
+        self.player_name = player_name
         self.driver_name = driver_name
         self.finish = finish
         self.beers = beers
@@ -23,4 +23,4 @@ class Entry(RaceFan):
         return self.__repr__()
 
     def __repr__(self):
-        return f"Entry:{self.fan_name} {self.race_name} {self.driver_name} {self.finish} {self.beer} {self.badge_color}"
+        return f"Entry:{self.player_name:4s} {self.race_name} {self.driver_name} {self.finish} {self.beer} {self.badge_color}"

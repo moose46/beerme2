@@ -26,7 +26,9 @@ DriverBet = namedtuple("DriverBet", "date, person_name, driver_name, badge_color
 
 
 class ProcessDataFiles:
-    """_summary_Reads data/results* txt files for the results of all races in the data directory"""
+    """_summary_Reads data/results* txt files for the results of all races in the data directory
+    creates a list of individual race results, but no correlation between two races,except race date
+    """
 
     def __init__(self):
         # a list of all race results
