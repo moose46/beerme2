@@ -1,5 +1,21 @@
 # betting data goes here
 from collections import defaultdict
+from datetime import date
+
+# import the datetime module
+import datetime
+
+# datetime in string format for may 25 1999
+input = "2021/05/25"
+
+# format
+# format = '%Y/%m/%d'
+format = "%m-%d-%Y"
+# convert from string format to datetime format
+
+# get the date from the datetime using date()
+# function
+# print(datetime.date())
 
 
 class BetData:
@@ -97,3 +113,75 @@ class BetData:
             Returns a list of dictionaries of all the current bet information for Greg and Bob
         """
         return self.individual_bets
+
+
+class Bet(object):
+    def __init__(
+        self,
+        race_date: date,
+        track: str,
+        player: str,
+        driver: str,
+        badge_color="bg-warning text-dark",
+    ) -> None:
+        self.race_date = datetime.datetime.strptime(race_date, format)
+
+        self.track = track
+        self.player = player
+        self.driver = driver
+        self.finish = -1
+        self.badge_color = badge_color
+
+    def __lt__(self, other):
+        return (self.race_date) < (other.race_date)
+
+    def __gt_(self, other):
+        return (self.race_date) > (other.race_date)
+
+    def __eq_(self, other):
+        return (self.race_date) == (other.race_date)
+
+    def __le_(self, other):
+        return (self.race_date) <= (other.race_date)
+
+    def __ge_(self, other):
+        return (self.race_date) >= (other.race_date)
+
+    def __repr__(self) -> str:
+        return f"{self.race_date}"
+
+
+def create_bets():
+    bets = []
+    bets.append(
+        Bet(race_date="02-19-2023", track="Daytona", player="Bob", driver="Ryan Blaney")
+    )
+    bets.append(
+        Bet(
+            race_date="02-19-2023", track="Daytona", player="Greg", driver="Kyle Larson"
+        )
+    )
+    bets.append(
+        Bet(
+            race_date="02-26-2023",
+            track="california",
+            player="Greg",
+            driver="Ryan Blaney",
+        )
+    bets.append(
+        Bet(
+            race_date="02-26-2023",
+            track="california",
+            player="Bob",
+            driver="Joey Logano",
+        )
+    )
+    return bets
+
+
+if __name__ == "__main__":
+    bets = create_bets()
+    bets = sorted(bets)
+    print(type(bets))
+    for bet in bets:
+        print(bet)
