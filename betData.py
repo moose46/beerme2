@@ -185,3 +185,4 @@ if __name__ == "__main__":
     print(type(bets))
     for bet in bets:
         print(bet)
+
