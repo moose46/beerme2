@@ -1,9 +1,12 @@
 # betting data goes here
-from collections import defaultdict
-from datetime import date
-
 # import the datetime module
+import csv
 import datetime
+from collections import defaultdict, namedtuple
+from datetime import date
+from operator import itemgetter
+from pathlib import Path
+from string import capwords
 
 # datetime in string format for may 25 1999
 input = "2021/05/25"
@@ -126,11 +129,25 @@ class Bet(object):
     ) -> None:
         self.race_date = datetime.datetime.strptime(race_date, format)
 
-        self.track = track
+        self.track = capwords(track)
         self.player = player
         self.driver = driver
-        self.finish = -1
-        self.badge_color = badge_color
+        self._finish = -1
+        # after this date we can not pick the same driver twice
+        self.badge_color = (
+            "bg-warning text-dark"
+            if self.race_date < datetime.datetime.strptime("04-23-2023", format)
+            else "bg-success text-light"
+        )
+        # print(self.race_date < datetime.datetime.strptime("04-23-2023", format))
+
+    @property
+    def finish(self):
+        return self._finish
+
+    @finish.setter
+    def finish(self, position):
+        self._finish = position
 
     def __lt__(self, other):
         return (self.race_date) < (other.race_date)
@@ -148,41 +165,44 @@ class Bet(object):
         return (self.race_date) >= (other.race_date)
 
     def __repr__(self) -> str:
-        return f"{self.race_date}"
+        return f"{self.race_date:%m-%d-%Y} {self.track} {self.player} {self.driver} {self.finish} {self.badge_color}"
 
 
-def create_bets():
-    bets = []
-    bets.append(
-        Bet(race_date="02-19-2023", track="Daytona", player="Bob", driver="Ryan Blaney")
-    )
-    bets.append(
-        Bet(
-            race_date="02-19-2023", track="Daytona", player="Greg", driver="Kyle Larson"
-        )
-    )
-    bets.append(
-        Bet(
-            race_date="02-26-2023",
-            track="california",
-            player="Greg",
-            driver="Ryan Blaney",
-        )
-    bets.append(
-        Bet(
-            race_date="02-26-2023",
-            track="california",
-            player="Bob",
-            driver="Joey Logano",
-        )
-    )
-    return bets
-
+file_path = Path.cwd() / "data" / "betData.csv"
 
 if __name__ == "__main__":
-    bets = create_bets()
-    bets = sorted(bets)
-    print(type(bets))
-    for bet in bets:
-        print(bet)
+    bets = []
+    race_dates = set()
+    print(f"race_dates = {type(race_dates)}")
+    with open(file_path) as f:
+        reader = csv.reader(f, delimiter="\t")
+        BetInfo = namedtuple("BetInfo", next(reader), rename=True)
+        for header in reader:
+            try:
+                data = BetInfo(*header)
+            except Exception as e:
+                print(e)
+            bets.append(
+                Bet(
+                    race_date=data.DATE,
+                    track=data.TRACK,
+                    player=data.PLAYER,
+                    driver=data.DRIVER,
+                )
+            )
+    # for x in sorted(bets):
+    #     print(x)
+    # create a unique set of race dates
+    for x in bets:
+        race_dates.add(x.race_date)
 
+    for x in race_dates:
+        # print(f"{x:%m-%d-%Y}")
+        print([y for y in bets if y.race_date == x])
+
+    abet = [
+        bet
+        for bet in bets
+        if bet.race_date == datetime.datetime.strptime("04-23-2023", format)
+    ]
+    # print(abet)
