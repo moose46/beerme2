@@ -169,11 +169,12 @@ class Bet(object):
 
 
 file_path = Path.cwd() / "data" / "betData.csv"
+results_file_path = Path.cwd() / "data"
 
 if __name__ == "__main__":
     bets = []
     race_dates = set()
-    print(f"race_dates = {type(race_dates)}")
+    # print(f"race_dates = {type(race_dates)}")
     with open(file_path) as f:
         reader = csv.reader(f, delimiter="\t")
         BetInfo = namedtuple("BetInfo", next(reader), rename=True)
@@ -193,16 +194,24 @@ if __name__ == "__main__":
     # for x in sorted(bets):
     #     print(x)
     # create a unique set of race dates
-    for x in bets:
-        race_dates.add(x.race_date)
+    # for x in bets:
+    #     race_dates.add(x.race_date)
 
-    for x in race_dates:
-        # print(f"{x:%m-%d-%Y}")
-        print([y for y in bets if y.race_date == x])
+    # create a a list of unique dates
+    all_race_dates = {x.race_date for x in bets}
+    for d in all_race_dates:
+        # print(f"{d:%m-%d-%Y}")
+        a_bet = [x for x in bets if x.race_date == d]
+        print(f"{a_bet[0]}\n{a_bet[1]}\n")
+        file_names = results_file_path.glob(f"results_*{d:%m-%d-%Y}_.txt")
+        for fname in file_names:
+            with open(fname):
+                print(f"found {d:%m-%d-%Y} ok!")
+    #     print([y for y in bets if y.race_date == x])
 
-    abet = [
-        bet
-        for bet in bets
-        if bet.race_date == datetime.datetime.strptime("04-23-2023", format)
-    ]
+    # abet = [
+    #     bet
+    #     for bet in bets
+    #     if bet.race_date == datetime.datetime.strptime("04-23-2023", format)
+    # ]
     # print(abet)
