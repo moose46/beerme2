@@ -8,13 +8,13 @@ from operator import itemgetter
 from pathlib import Path
 from string import capwords
 
-# datetime in string format for may 25 1999
-input = "2021/05/25"
+# datetime in string date_format for may 25 1999
+# input = "2021/05/25"
 
-# format
-# format = '%Y/%m/%d'
-format = "%m-%d-%Y"
-# convert from string format to datetime format
+# date_format
+# date_format = '%Y/%m/%d'
+date_format = "%m-%d-%Y"
+# convert from string date_format to datetime date_format
 
 # get the date from the datetime using date()
 # function
@@ -113,7 +113,7 @@ class BetData:
         """_summary_
 
         Returns:
-            Returns a list of dictionaries of all the current bet information for Greg and Bob
+            Returns a list of dictionaries of all the current bet indate_formation for Greg and Bob
         """
         return self.individual_bets
 
@@ -127,7 +127,7 @@ class Bet(object):
         driver: str,
         badge_color="bg-warning text-dark",
     ) -> None:
-        self.race_date = datetime.datetime.strptime(race_date, format)
+        self.race_date = datetime.datetime.strptime(race_date, date_format)
 
         self.track = capwords(track)
         self.player = player
@@ -136,10 +136,10 @@ class Bet(object):
         # after this date we can not pick the same driver twice
         self.badge_color = (
             "bg-warning text-dark"
-            if self.race_date < datetime.datetime.strptime("04-23-2023", format)
+            if self.race_date < datetime.datetime.strptime("04-23-2023", date_format)
             else "bg-success text-light"
         )
-        # print(self.race_date < datetime.datetime.strptime("04-23-2023", format))
+        # print(self.race_date < datetime.datetime.strptime("04-23-2023", date_format))
 
     @property
     def finish(self):
@@ -201,8 +201,8 @@ if __name__ == "__main__":
     all_race_dates = {x.race_date for x in bets}
     for d in all_race_dates:
         # print(f"{d:%m-%d-%Y}")
-        a_bet = [x for x in bets if x.race_date == d]
-        print(f"{a_bet[0]}\n{a_bet[1]}\n")
+        race_bets = [x for x in bets if x.race_date == d]
+        print(f"{race_bets[0]}\n{race_bets[1]}\n")
         file_names = results_file_path.glob(f"results_*{d:%m-%d-%Y}_.txt")
         for fname in file_names:
             with open(fname):
@@ -212,6 +212,6 @@ if __name__ == "__main__":
     # abet = [
     #     bet
     #     for bet in bets
-    #     if bet.race_date == datetime.datetime.strptime("04-23-2023", format)
+    #     if bet.race_date == datetime.datetime.strptime("04-23-2023", date_format)
     # ]
     # print(abet)
