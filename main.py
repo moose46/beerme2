@@ -1,3 +1,6 @@
+"""
+realpython.com this file is renamed to flask_app.py
+"""
 from flask import Flask, render_template
 
 from bets import betting_summary

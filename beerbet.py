@@ -23,9 +23,9 @@ class BeerBet(Entry):
 
     def the_winner(self):
         # if self.greg.finish > self.bob.finish:
-        self.bob.beer = self.bob.beers
+        self.bob.beer = self.bob.beers  # type: ignore
         # elif self.greg.finish < self.bob.finish:
-        self.greg.beer = self.greg.beers
+        self.greg.beer = self.greg.beers  # type: ignore
 
         return {
             "Bob": self.bob.beers,
@@ -39,6 +39,6 @@ class BeerBet(Entry):
     def __repr__(self):
         return (
             f"Race: {self.race_name}:\n"
-            f"\tName: {self.bob.fan_name} Driver:{self.bob.driver_name} Finish:{self.bob.finish} Beers:{self.bob.beers} color:{self.badge_color}\n"
-            f"\tName: {self.greg.fan_name} Driver:{self.greg.driver_name} Finish:{self.greg.finish} Beers:{self.greg.beers} color:{self.badge_color}"
+            f"\tName: Driver:{self.bob.driver_name} Finish:{self.bob.finish} Beers:{self.bob.beers} color:{self.badge_color}\n"
+            f"\tName: Driver:{self.greg.driver_name} Finish:{self.greg.finish} Beers:{self.greg.beers} color:{self.badge_color}"
         )

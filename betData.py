@@ -107,6 +107,11 @@ class BetData:
             "Bob": "AJ Allmendinger",
             "badge_color": "bg-success text-light",
         }
+        self.individual_bets["06-25-2023"] = {
+            "Greg": "Martin Truex Jr.",
+            "Bob": "Ross Chastain",
+            "badge_color": "bg-success text-light",
+        }
 
     @property
     def get_bets(self):
@@ -178,6 +183,7 @@ if __name__ == "__main__":
     with open(file_path) as f:
         reader = csv.reader(f, delimiter="\t")
         BetInfo = namedtuple("BetInfo", next(reader), rename=True)
+        data = []
         for header in reader:
             try:
                 data = BetInfo(*header)
@@ -185,10 +191,10 @@ if __name__ == "__main__":
                 print(e)
             bets.append(
                 Bet(
-                    race_date=data.DATE,
-                    track=data.TRACK,
-                    player=data.PLAYER,
-                    driver=data.DRIVER,
+                    race_date=data.DATE,  # type: ignore
+                    track=data.TRACK,  # type: ignore
+                    player=data.PLAYER,  # type: ignore
+                    driver=data.DRIVER,  # type: ignore
                 )
             )
     # for x in sorted(bets):

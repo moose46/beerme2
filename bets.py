@@ -67,6 +67,6 @@ for date, items in groupby(individual_race_results, key=itemgetter("race_date"))
             )
 
 # beers count has already been scored
-# for l in list_of_individual_bets:
-#     logging.info(f"bets.py->list_of_individul_bets {l}")
+for l in list_of_individual_bets:
+    logging.info(f"bets.py->list_of_individul_bets {l}")
 betting_summary = Summary(list_of_individual_bets)
