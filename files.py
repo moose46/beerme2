@@ -90,7 +90,7 @@ class ProcessDataFiles:
                                                 for word in race_track.split(" ")
                                             ]
                                         ),
-                                        "driver_name": result.DRIVER,
+                                        "driver_name": f'{result.DRIVER.split(" ")[1][:8]}',  # get the last name and trunc it to 8 chars
                                         "finish": int(result.POS),
                                         "player_name": name,
                                         "beers": 1 if int(result.POS) == 0 else 0,
@@ -100,8 +100,8 @@ class ProcessDataFiles:
                                         ],
                                     }
                                 )
-                    # logging.info(f"line 170 = {result}")
-                    # print(result)
+                                # logging.info(f"line 170 = {result}")
+                                # print(result)
 
         # for b in self.race_schedule_results:
         #     logging.info(f"files.py race ={b}")
