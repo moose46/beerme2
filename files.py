@@ -81,6 +81,14 @@ class ProcessDataFiles:
                                     p.capitalize() for p in parts
                                 ]  # cap first letter(s) of name
                                 # add results of the race and the bet data for this player to the list of results
+                                driver_last_name = result.DRIVER.split(" ")
+                                try:
+                                    if len(driver_last_name) > 2:
+                                        if driver_last_name[2] == "Jr.":
+                                            del driver_last_name[2]
+                                finally:
+                                    pass
+                                    # print(driver_last_name)
                                 self.race_schedule_results.append(
                                     {
                                         "race_date": race_date,
@@ -90,7 +98,7 @@ class ProcessDataFiles:
                                                 for word in race_track.split(" ")
                                             ]
                                         ),
-                                        "driver_name": f'{result.DRIVER.split(" ")[1][:8]}',  # get the last name and trunc it to 8 chars
+                                        "driver_name": f'{result.DRIVER.split(" ")[len(driver_last_name)-1][:8]} {result.POS}',  # get the last name and trunc it to 8 chars
                                         "finish": int(result.POS),
                                         "player_name": name,
                                         "beers": 1 if int(result.POS) == 0 else 0,

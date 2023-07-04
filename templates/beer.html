@@ -13,20 +13,19 @@
         <table width="100%" align="center">
             <tr>
                 <th class="left-th"><span class="badge bg-secondary text-light">Race</span></th>
-                <th><span class="badge bg-danger">Greg&nbsp</span></th>
+                <th style="text-align:left width:10px"><span class="badge bg-danger">Greg&nbsp</span></th>
+                <th style="text-align:left width:10px"></th>
                 <th><span class="badge bg-danger">Bob&nbsp&nbsp</span></th>
+                <th></th>
             </tr>
             {% for b in betting_summary.list_of_individual_bets %}
                 <tr>
                     <td style="color: #FFB500" class="left-td"><span class="badge bg-dark ">{{ b.race_name[0:8] }}:&nbsp</span>
                     </td>
-                    <td> <span
-                            class="badge {{b.greg.badge_color}}">{{ b.greg.driver_name }}
-                        {% if b.greg.finish == 0 %}
-                            N/A
-                        {% else %}
-                            &nbsp/&nbsp{{ b.greg.finish }}
-                        {% endif %}</span>
+                    <td class="badge badge-pill {{b.greg.badge_color}}" style="width:12">
+                            {{ b.greg.driver_name }}
+                        </td>
+                        <td>
                         {% if b.greg.beer == 1 %}
                             <img src="../static/beer.png" width="10" height="20">
                         
@@ -36,21 +35,22 @@
                                 <img src="../static/beer.png" width="10" height="20">
                             </td>
                         {% endif %}
+
                     </td>
                     <td><span
                             class="badge {{b.bob.badge_color}}">{{ b.bob.driver_name }}
-                        {% if b.bob.finish == 0 %}
-                            N/A
-                        {% else %}
-                            &nbsp/&nbsp{{ b.bob.finish }}
-                        {% endif %}</span>
+                        </span>
+                        <span>
+                        </td>
+                        <td style="width:10">
                         {% if b.bob.beer == 1 %}
                             <img src="../static/beer.png" width="10" height="20">
                         {% endif %}
                         {% if b.bob.beer == 2 %}
                                 <img src="../static/beer.png" width="10" height="20">
                                 <img src="../static/beer.png" width="10" height="20">
-                        {% endif %}
+                        {% endif %}</span>
+
                     </td>
                 </tr>
             {% endfor %}
@@ -71,22 +71,6 @@
                     {% endfor %}
                 </td>
             </tr>
-            {% for t in team_summary %}
-                <tr>
-                    <td style="color: #FFB500" class="left-td"><span class="badge bg-dark ">{{ t.race_name }}:</span>
-                    </td>
-                    <td><span class="badge bg-warning text-dark">Penske / {{ t['Penske'] }}</span>
-                        {% if t['Greg'] %}
-                            <img src="../static/beer.png" width="10" height="20">
-                        {% endif %}
-                    </td>
-                    <td><span class="badge bg-warning text-dark">Gibbs / {{ t['Gibbs'] }}</span>
-                        {% if t['Bob'] %}
-                            <img src="../static/beer.png" width="10" height="20">
-                        {% endif %}
-                    </td>
-                </tr>
-            {% endfor %}
         </table>
         <hr style="color:white">
         <table align="center">
