@@ -82,12 +82,12 @@ class ProcessDataFiles:
                                 ]  # cap first letter(s) of name
                                 # add results of the race and the bet data for this player to the list of results
                                 driver_last_name = result.DRIVER.split(" ")
-                                try:
-                                    if len(driver_last_name) > 2:
-                                        if driver_last_name[2] == "Jr.":
-                                            del driver_last_name[2]
-                                finally:
-                                    pass
+                                # martin truex jr., del jr.
+                                if (
+                                    len(driver_last_name) > 2
+                                    and driver_last_name[2] == "Jr."
+                                ):
+                                    del driver_last_name[2]
                                     # print(driver_last_name)
                                 self.race_schedule_results.append(
                                     {
