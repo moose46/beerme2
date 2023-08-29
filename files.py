@@ -44,7 +44,7 @@ class ProcessDataFiles:
         """Return a list of dictionaries of all the bets for Bob and Greg"""
         return self.individual_bets
 
-    def read_data_files(self):
+    def read_data_files(self):  # sourcery skip: low-code-quality
         # find all the results for all the races in the data directory that match the results*2023_.txt pattern
         for f in file_path.glob("results*2023_.txt"):
             race_track = f.stem.split("_")[1]
