@@ -162,6 +162,11 @@ class BetData:
             "Bob": "Michael McDowell",
             "badge_color": "bg-success text-light",
         }
+        self.individual_bets["09-10-2023"] = {
+            "Greg": "Austin Dillon",
+            "Bob": "Tyler Reddick",
+            "badge_color": "bg-success text-light",
+        }
 
     @property
     def get_bets(self):
