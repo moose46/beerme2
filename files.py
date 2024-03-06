@@ -46,7 +46,7 @@ class ProcessDataFiles:
 
     def read_data_files(self):  # sourcery skip: low-code-quality
         # find all the results for all the races in the data directory that match the results*2023_.txt pattern
-        for f in file_path.glob("results*2023_.txt"):
+        for f in file_path.glob("results*2024_.txt"):
             race_track = f.stem.split("_")[1]
             race_date = re.findall(r"\d+-\d+-\d+", f.name)[
                 0

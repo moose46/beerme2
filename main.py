@@ -1,6 +1,7 @@
 """
 realpython.com this file is renamed to flask_app.py
 """
+
 from flask import Flask, render_template
 
 from bets import betting_summary
@@ -24,7 +25,7 @@ def index():
     )
 
 
-# to run this server, python main,py 5000
+# to run this server, python main.py 5000
 if __name__ == "__main__":
     # app.run(host="127.0.0.1", port=8089, debug=True)
     app.run(host="127.0.0.1", port=5000, debug=True)

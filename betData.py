@@ -25,188 +25,188 @@ class BetData:
     def __init__(self) -> None:
         self.individual_bets = defaultdict()
         # self.individual_bets.setdefault("missing_key")
-        self.individual_bets["02-19-2023"] = {
-            "Greg": "Kyle Larson",
-            "Bob": "Ryan Blaney",
+        self.individual_bets["02-18-2024"] = {
+            "Greg": "Joey Logano",
+            "Bob": "Chase Elliott",
             "badge_color": "bg-warning text-dark",
         }
-        self.individual_bets["02-26-2023"] = {
-            "Greg": "Ryan Blaney",
+        self.individual_bets["02-25-2024"] = {
+            "Greg": "Kyle Larson",
             "Bob": "Joey Logano",
             "badge_color": "bg-warning text-dark",
         }
-        self.individual_bets["03-05-2023"] = {
+        self.individual_bets["03-03-2024"] = {
             "Greg": "Kyle Larson",
-            "Bob": "Kyle Busch",
+            "Bob": "William Byron",
             "badge_color": "bg-warning text-dark",
         }
 
-        self.individual_bets["03-12-2023"] = {
-            "Greg": "Ryan Blaney",
-            "Bob": "William Byron",
-            "badge_color": "bg-warning text-dark",
-        }
-        self.individual_bets["03-19-2023"] = {
-            "Greg": "Kyle Busch",
-            "Bob": "Joey Logano",
-            "badge_color": "bg-warning text-dark",
-        }
-        self.individual_bets["03-26-2023"] = {
-            "Greg": "Tyler Reddick",
-            "Bob": "Ross Chastain",
-            "badge_color": "bg-warning text-dark",
-        }
-        self.individual_bets["04-02-2023"] = {
-            "Greg": "Kyle Larson",
-            "Bob": "Kevin Harvick",
-            "badge_color": "bg-warning text-dark",
-        }
-        self.individual_bets["04-09-2023"] = {
-            "Greg": "Kyle Larson",
-            "Bob": "Tyler Reddick",
-            "badge_color": "bg-warning text-dark",
-        }
-        self.individual_bets["04-16-2023"] = {
-            "Greg": "William Byron",
-            "Bob": "Tyler Reddick",
-            "badge_color": "bg-warning text-dark",
-        }
-        # start of can't pick a driver twice
-        self.individual_bets["04-23-2023"] = {
-            "Greg": "Ryan Blaney",
-            "Bob": "Aric Almirola",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["04-30-2023"] = {
-            "Greg": "Kyle Larson",
-            "Bob": "William Byron",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["05-07-2023"] = {
-            "Greg": "William Byron",
-            "Bob": "Martin Truex Jr.",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["05-14-2023"] = {
-            "Greg": "Denny Hamlin",
-            "Bob": "Kyle Larson",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["05-28-2023"] = {
-            "Greg": "Chase Elliott",
-            "Bob": "Kyle Busch",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["06-04-2023"] = {
-            "Greg": "Kevin Harvick",
-            "Bob": "Joey Logano",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["06-11-2023"] = {
-            "Greg": "Tyler Reddick",
-            "Bob": "AJ Allmendinger",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["06-25-2023"] = {
-            "Greg": "Martin Truex Jr.",
-            "Bob": "Ross Chastain",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["07-02-2023"] = {
-            "Greg": "Christopher Bell",
-            "Bob": "Shane van Gisbergen",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["07-09-2023"] = {
-            "Greg": "Joey Logano",
-            "Bob": "Ryan Blaney",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["07-17-2023"] = {
-            "Greg": "Aric Almirola",
-            "Bob": "Bubba Wallace",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["07-23-2023"] = {
-            "Greg": "Austin Cindric",
-            "Bob": "Christopher Bell",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["07-30-2023"] = {
-            "Greg": "Ty Gibbs",
-            "Bob": "Chase Elliott",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["08-06-2023"] = {
-            "Greg": "Ross Chastain",
-            "Bob": "Kevin Harvick",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["08-13-2023"] = {
-            "Greg": "Shane van Gisbergen",
-            "Bob": "Daniel Suarez",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["08-20-2023"] = {
-            "Greg": "Michael McDowell",
-            "Bob": "Chris Buescher",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["08-26-2023"] = {
-            "Greg": "Chase Briscoe",
-            "Bob": "Ryan Preece",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["09-03-2023"] = {
-            "Greg": "Ricky Stenhouse Jr.",
-            "Bob": "Michael McDowell",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["09-10-2023"] = {
-            "Greg": "Austin Dillon",
-            "Bob": "Tyler Reddick",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["09-16-2023"] = {
-            "Greg": "Brad Keselowski",
-            "Bob": "Corey LaJoie",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["09-24-2023"] = {
-            "Greg": "Bubba Wallace",
-            "Bob": "Erik Jones",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["10-01-2023"] = {
-            "Greg": "Riley Herbst",
-            "Bob": "Brad Keselowski",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["10-08-2023"] = {
-            "Greg": "Daniel Suarez",
-            "Bob": "Ty Gibbs",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["10-15-2023"] = {
-            "Greg": "Justin Haley",
-            "Bob": "Carson Hocevar",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["10-22-2023"] = {
-            "Greg": "Alex Bowman",
-            "Bob": "Austin Dillon",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["10-29-2023"] = {
-            "Greg": "Ryan Preece",
-            "Bob": "Chase Briscoe",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["11-05-2023"] = {
-            "Greg": "Chris Buescher",
-            "Bob": "Denny Hamlin",
-            "badge_color": "bg-success text-light",
-        }
+        # self.individual_bets["03-12-2023"] = {
+        #     "Greg": "Ryan Blaney",
+        #     "Bob": "William Byron",
+        #     "badge_color": "bg-warning text-dark",
+        # }
+        # self.individual_bets["03-19-2023"] = {
+        #     "Greg": "Kyle Busch",
+        #     "Bob": "Joey Logano",
+        #     "badge_color": "bg-warning text-dark",
+        # }
+        # self.individual_bets["03-26-2023"] = {
+        #     "Greg": "Tyler Reddick",
+        #     "Bob": "Ross Chastain",
+        #     "badge_color": "bg-warning text-dark",
+        # }
+        # self.individual_bets["04-02-2023"] = {
+        #     "Greg": "Kyle Larson",
+        #     "Bob": "Kevin Harvick",
+        #     "badge_color": "bg-warning text-dark",
+        # }
+        # self.individual_bets["04-09-2023"] = {
+        #     "Greg": "Kyle Larson",
+        #     "Bob": "Tyler Reddick",
+        #     "badge_color": "bg-warning text-dark",
+        # }
+        # self.individual_bets["04-16-2023"] = {
+        #     "Greg": "William Byron",
+        #     "Bob": "Tyler Reddick",
+        #     "badge_color": "bg-warning text-dark",
+        # }
+        # # start of can't pick a driver twice
+        # self.individual_bets["04-23-2023"] = {
+        #     "Greg": "Ryan Blaney",
+        #     "Bob": "Aric Almirola",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["04-30-2023"] = {
+        #     "Greg": "Kyle Larson",
+        #     "Bob": "William Byron",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["05-07-2023"] = {
+        #     "Greg": "William Byron",
+        #     "Bob": "Martin Truex Jr.",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["05-14-2023"] = {
+        #     "Greg": "Denny Hamlin",
+        #     "Bob": "Kyle Larson",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["05-28-2023"] = {
+        #     "Greg": "Chase Elliott",
+        #     "Bob": "Kyle Busch",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["06-04-2023"] = {
+        #     "Greg": "Kevin Harvick",
+        #     "Bob": "Joey Logano",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["06-11-2023"] = {
+        #     "Greg": "Tyler Reddick",
+        #     "Bob": "AJ Allmendinger",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["06-25-2023"] = {
+        #     "Greg": "Martin Truex Jr.",
+        #     "Bob": "Ross Chastain",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["07-02-2023"] = {
+        #     "Greg": "Christopher Bell",
+        #     "Bob": "Shane van Gisbergen",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["07-09-2023"] = {
+        #     "Greg": "Joey Logano",
+        #     "Bob": "Ryan Blaney",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["07-17-2023"] = {
+        #     "Greg": "Aric Almirola",
+        #     "Bob": "Bubba Wallace",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["07-23-2023"] = {
+        #     "Greg": "Austin Cindric",
+        #     "Bob": "Christopher Bell",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["07-30-2023"] = {
+        #     "Greg": "Ty Gibbs",
+        #     "Bob": "Chase Elliott",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["08-06-2023"] = {
+        #     "Greg": "Ross Chastain",
+        #     "Bob": "Kevin Harvick",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["08-13-2023"] = {
+        #     "Greg": "Shane van Gisbergen",
+        #     "Bob": "Daniel Suarez",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["08-20-2023"] = {
+        #     "Greg": "Michael McDowell",
+        #     "Bob": "Chris Buescher",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["08-26-2023"] = {
+        #     "Greg": "Chase Briscoe",
+        #     "Bob": "Ryan Preece",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["09-03-2023"] = {
+        #     "Greg": "Ricky Stenhouse Jr.",
+        #     "Bob": "Michael McDowell",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["09-10-2023"] = {
+        #     "Greg": "Austin Dillon",
+        #     "Bob": "Tyler Reddick",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["09-16-2023"] = {
+        #     "Greg": "Brad Keselowski",
+        #     "Bob": "Corey LaJoie",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["09-24-2023"] = {
+        #     "Greg": "Bubba Wallace",
+        #     "Bob": "Erik Jones",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["10-01-2023"] = {
+        #     "Greg": "Riley Herbst",
+        #     "Bob": "Brad Keselowski",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["10-08-2023"] = {
+        #     "Greg": "Daniel Suarez",
+        #     "Bob": "Ty Gibbs",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["10-15-2023"] = {
+        #     "Greg": "Justin Haley",
+        #     "Bob": "Carson Hocevar",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["10-22-2023"] = {
+        #     "Greg": "Alex Bowman",
+        #     "Bob": "Austin Dillon",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["10-29-2023"] = {
+        #     "Greg": "Ryan Preece",
+        #     "Bob": "Chase Briscoe",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["11-05-2023"] = {
+        #     "Greg": "Chris Buescher",
+        #     "Bob": "Denny Hamlin",
+        #     "badge_color": "bg-success text-light",
+        # }
 
     @property
     def get_bets(self):
