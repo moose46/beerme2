@@ -41,11 +41,11 @@ class BetData:
             "badge_color": "bg-warning text-dark",
         }
 
-        # self.individual_bets["03-12-2023"] = {
-        #     "Greg": "Ryan Blaney",
-        #     "Bob": "William Byron",
-        #     "badge_color": "bg-warning text-dark",
-        # }
+        self.individual_bets["03-10-2024"] = {
+            "Greg": "Ryan Blaney",
+            "Bob": "William Byron",
+            "badge_color": "bg-warning text-dark",
+        }
         # self.individual_bets["03-19-2023"] = {
         #     "Greg": "Kyle Busch",
         #     "Bob": "Joey Logano",
