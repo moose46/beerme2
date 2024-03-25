@@ -64,15 +64,17 @@ class ProcessDataFiles:
                     result = rawResult(*row)  # unpack csv data row into the named tuple
                     # except Exception as e:
                     #     print(f.name)
-
+                    logging.info(f"raw result: {result}")
                     if strptime(race_date, DATE_FORMAT) > strptime(
-                        "01-01-2023", DATE_FORMAT
+                        "01-01-2024", DATE_FORMAT
                     ):
+                        logging.info(f"date {race_date} is > 01-01-2024")
                         # loop through the bets and check for a driver in the results, if found add to the results list
                         for name in self.individual_bets[
                             race_date
                         ]:  # get the bet data for the this race data
                             # the key [race_date][name] returns the driver name
+                            logging.info(f"name in individual_bets: {name}")
                             if self.individual_bets[race_date][name] == result.DRIVER:
                                 parts = race_track.split(
                                     " "
@@ -111,8 +113,8 @@ class ProcessDataFiles:
                                 # logging.info(f"line 170 = {result}")
                                 # print(result)
 
-        # for b in self.race_schedule_results:
-        #     logging.info(f"files.py race ={b}")
+        for b in self.race_schedule_results:
+            logging.info(f"files.py race_schedule_results ={b}")
         return sorted(
             self.race_schedule_results,
             key=itemgetter("race_date", "player_name"),
