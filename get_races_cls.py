@@ -12,7 +12,7 @@ class Races:
         self.file_path = Path.cwd() / "data"
         self.races = {}
         self.drivers = {}
-        # create a dictionay of all race for the year passed
+        # create a dictionay of all races for the year passed as a parameter
         for f in self.file_path.glob(f"results*{self.year}_.txt"):
             race_track = f.stem.split("_")[1]
             race_date = re.findall(r"\d+-\d+-\d+", f.name)[
