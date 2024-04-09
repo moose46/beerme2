@@ -68,7 +68,7 @@ class ProcessDataFiles:
                     if strptime(race_date, DATE_FORMAT) > strptime(
                         "01-01-2024", DATE_FORMAT
                     ):
-                        logging.info(f"date {race_date} is > 01-01-2024")
+                        # logging.info(f"date {race_date} is > 01-01-2024")
                         # loop through the bets and check for a driver in the results, if found add to the results list
                         for name in self.individual_bets[
                             race_date

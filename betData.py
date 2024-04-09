@@ -56,16 +56,16 @@ class BetData:
             "Bob": "William Byron",
             "badge_color": "bg-warning text-dark",
         }
-        # self.individual_bets["03-26-2023"] = {
-        #     "Greg": "Tyler Reddick",
-        #     "Bob": "Ross Chastain",
-        #     "badge_color": "bg-warning text-dark",
-        # }
-        # self.individual_bets["04-02-2023"] = {
-        #     "Greg": "Kyle Larson",
-        #     "Bob": "Kevin Harvick",
-        #     "badge_color": "bg-warning text-dark",
-        # }
+        self.individual_bets["03-31-2024"] = {
+            "Greg": "Kyle Larson",
+            "Bob": "Chris Buescher",
+            "badge_color": "bg-warning text-dark",
+        }
+        self.individual_bets["04-07-2024"] = {
+            "Greg": "Christopher Bell",
+            "Bob": "Martin Truex Jr.",
+            "badge_color": "bg-warning text-dark",
+        }
         # self.individual_bets["04-09-2023"] = {
         #     "Greg": "Kyle Larson",
         #     "Bob": "Tyler Reddick",
