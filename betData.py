@@ -61,21 +61,24 @@ class BetData:
             "Bob": "Chris Buescher",
             "badge_color": "bg-warning text-dark",
         }
+        # Martinsville
         self.individual_bets["04-07-2024"] = {
             "Greg": "Christopher Bell",
             "Bob": "Martin Truex Jr.",
             "badge_color": "bg-warning text-dark",
         }
-        # self.individual_bets["04-09-2023"] = {
-        #     "Greg": "Kyle Larson",
-        #     "Bob": "Tyler Reddick",
-        #     "badge_color": "bg-warning text-dark",
-        # }
-        # self.individual_bets["04-16-2023"] = {
-        #     "Greg": "William Byron",
-        #     "Bob": "Tyler Reddick",
-        #     "badge_color": "bg-warning text-dark",
-        # }
+        # Texas Cota
+        self.individual_bets["04-14-2024"] = {
+            "Greg": "Kyle Larson",
+            "Bob": "William Byron",
+            "badge_color": "bg-warning text-dark",
+        }
+        # Talladega
+        self.individual_bets["04-21-2024"] = {
+            "Greg": "Brad Keselowski",
+            "Bob": "Ryan Blaney",
+            "badge_color": "bg-warning text-dark",
+        }
         # # start of can't pick a driver twice
         # self.individual_bets["04-23-2023"] = {
         #     "Greg": "Ryan Blaney",
