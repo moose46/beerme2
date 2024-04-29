@@ -80,11 +80,11 @@ class BetData:
             "badge_color": "bg-warning text-dark",
         }
         # # start of can't pick a driver twice
-        # self.individual_bets["04-23-2023"] = {
-        #     "Greg": "Ryan Blaney",
-        #     "Bob": "Aric Almirola",
-        #     "badge_color": "bg-success text-light",
-        # }
+        self.individual_bets["04-28-2024"] = {
+            "Greg": "Denny Hamlin",
+            "Bob": "William Byron",
+            "badge_color": "bg-success text-light",
+        }
         # self.individual_bets["04-30-2023"] = {
         #     "Greg": "Kyle Larson",
         #     "Bob": "William Byron",
