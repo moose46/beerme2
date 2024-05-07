@@ -85,11 +85,11 @@ class BetData:
             "Bob": "William Byron",
             "badge_color": "bg-success text-light",
         }
-        # self.individual_bets["04-30-2023"] = {
-        #     "Greg": "Kyle Larson",
-        #     "Bob": "William Byron",
-        #     "badge_color": "bg-success text-light",
-        # }
+        self.individual_bets["05-05-2024"] = {
+            "Greg": "Kyle Larson",
+            "Bob": "Denny Hamlin",
+            "badge_color": "bg-success text-light",
+        }
         # self.individual_bets["05-07-2023"] = {
         #     "Greg": "William Byron",
         #     "Bob": "Martin Truex Jr.",
