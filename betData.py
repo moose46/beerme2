@@ -332,7 +332,8 @@ if __name__ == "__main__":
     # print(abet)
     import glob
     import os
-        """
+
+    """
         To run: run python betData.py
         this will check to see if betData race dates match the data race dates in the data subdirectory
 
@@ -342,7 +343,7 @@ if __name__ == "__main__":
         Example:
         03-24-2022 False # file not found
         03-17-2022 True # file was found
-        """
+    """
     all_bets = BetData()
     for x in all_bets.get_bets:
         file_path = Path.cwd() / "data"
