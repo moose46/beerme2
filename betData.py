@@ -90,11 +90,16 @@ class BetData:
             "Bob": "Denny Hamlin",
             "badge_color": "bg-success text-light",
         }
-        # self.individual_bets["05-07-2023"] = {
-        #     "Greg": "William Byron",
-        #     "Bob": "Martin Truex Jr.",
-        #     "badge_color": "bg-success text-light",
-        # }
+        self.individual_bets["05-12-2024"] = {
+            "Greg": "Martin Truex Jr.",
+            "Bob": "William Byron",
+            "badge_color": "bg-success text-light",
+        }
+        self.individual_bets["05-26-2024"] = {
+            "Greg": "Ryan Blaney",
+            "Bob": "William Byron",
+            "badge_color": "bg-success text-light",
+        }
         # self.individual_bets["05-14-2023"] = {
         #     "Greg": "Denny Hamlin",
         #     "Bob": "Kyle Larson",
@@ -292,6 +297,7 @@ if __name__ == "__main__":
                 data = BetInfo(*header)
             except Exception as e:
                 print(e)
+                exit()
             bets.append(
                 Bet(
                     race_date=data.DATE,  # type: ignore
@@ -307,15 +313,15 @@ if __name__ == "__main__":
     #     race_dates.add(x.race_date)
 
     # create a a list of unique dates
-    all_race_dates = {x.race_date for x in bets}
-    for d in all_race_dates:
-        # print(f"{d:%m-%d-%Y}")
-        race_bets = [x for x in bets if x.race_date == d]
-        print(f"{race_bets[0]}\n{race_bets[1]}\n")
-        file_names = results_file_path.glob(f"results_*{d:%m-%d-%Y}_.txt")
-        for fname in file_names:
-            with open(fname):
-                print(f"found {d:%m-%d-%Y} ok!")
+    # all_race_dates = {x.race_date for x in bets}
+    # for d in all_race_dates:
+    #     print(f"{d:%m-%d-%Y}")
+    #     race_bets = [x for x in bets if x.race_date == d]
+    #     print(f"{race_bets[0]}\n{race_bets[1]}\n")
+    #     file_names = results_file_path.glob(f"results_*{d:%m-%d-%Y}_.txt")
+    #     for fname in file_names:
+    #         with open(fname):
+    #             print(f"found {d:%m-%d-%Y} ok!")
     #     print([y for y in bets if y.race_date == x])
 
     # abet = [
@@ -324,3 +330,6 @@ if __name__ == "__main__":
     #     if bet.race_date == datetime.datetime.strptime("04-23-2023", date_format)
     # ]
     # print(abet)
+    all_bets = BetData()
+    for x in all_bets.get_bets:
+        print(x)
