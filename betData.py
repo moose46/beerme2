@@ -330,6 +330,21 @@ if __name__ == "__main__":
     #     if bet.race_date == datetime.datetime.strptime("04-23-2023", date_format)
     # ]
     # print(abet)
+    import glob
+    import os
+        """
+        To run: run python betData.py
+        this will check to see if betData race dates match the data race dates in the data subdirectory
+
+        Output:
+        a list of dates and if the data file does not exist, the date will have false next to the race date
+
+        Example:
+        03-24-2022 False # file not found
+        03-17-2022 True # file was found
+        """
     all_bets = BetData()
     for x in all_bets.get_bets:
-        print(x)
+        file_path = Path.cwd() / "data"
+        fn = f"{file_path}/*_{x}_.txt*"
+        print(f"{x} {not not glob.glob(fn)}")
