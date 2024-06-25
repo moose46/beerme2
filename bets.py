@@ -9,6 +9,7 @@ import logging
 import operator
 from itertools import groupby
 from operator import itemgetter
+from pathlib import Path
 
 from beerbet import BeerBet
 from entry import Entry
@@ -16,14 +17,27 @@ from files import ProcessDataFiles
 from summary import Summary
 from wager import MyWager
 
+# logging.basicConfig(
+#     filename="./bets_log.txt",
+#     level=logging.DEBUG,
+#     format="%(asctime)s - %(levelname)s - %(message)s",
+#     filemode="w",
+# )
+file_path = Path.home() / "beerme" / "data"
+log_file = Path.home() / "beerme" / "logs" / "bets_log.txt"
+if not file_path.exists():
+    file_path = Path.cwd() / "logs"
+    log_file = Path.cwd() / "files_log.txt"
+
+
 logging.basicConfig(
-    filename="bets_log.txt",
+    filename=log_file,
     level=logging.DEBUG,
     format="%(asctime)s - %(levelname)s - %(message)s",
     filemode="w",
 )
 
-# read all race results*.txt files for 2023 and the drivers finish position
+# read all race results*.txt files for a year and the drivers finish position
 # for bets that greg and bob placed
 p = ProcessDataFiles()
 race_results = p.read_data_files()
@@ -67,6 +81,7 @@ for date, items in groupby(individual_race_results, key=itemgetter("race_date"))
             )
 
 # beers count has already been scored
+# to test: python bets.py
 for l in list_of_individual_bets:
     logging.info(f"bets.py->list_of_individul_bets {l}")
 betting_summary = Summary(list_of_individual_bets)

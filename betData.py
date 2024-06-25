@@ -22,6 +22,9 @@ date_format = "%m-%d-%Y"
 
 
 class BetData:
+    def __getitem__(self, race_date):
+        return self.individual_bets[race_date]
+
     def __init__(self) -> None:
         self.individual_bets = defaultdict()
         # self.individual_bets.setdefault("missing_key")
@@ -115,11 +118,11 @@ class BetData:
             "Bob": "Christopher Bell",
             "badge_color": "bg-success text-light",
         }
-        # self.individual_bets["06-11-2023"] = {
-        #     "Greg": "Tyler Reddick",
-        #     "Bob": "AJ Allmendinger",
-        #     "badge_color": "bg-success text-light",
-        # }
+        self.individual_bets["06-23-2024"] = {
+            "Greg": "Kyle Larson",
+            "Bob": "Ryan Blaney",
+            "badge_color": "bg-success text-light",
+        }
         # self.individual_bets["06-25-2023"] = {
         #     "Greg": "Martin Truex Jr.",
         #     "Bob": "Ross Chastain",
@@ -227,7 +230,15 @@ class BetData:
 
         Returns:
             Returns a list of dictionaries of all the current bet indate_formation for Greg and Bob
+            first pick starts at the first of the year and alternates each week
         """
+        first_pick = 0
+        for x in self.individual_bets:
+            if first_pick % 2:
+                self.individual_bets[x]["first_pick"] = "Greg"
+            else:
+                self.individual_bets[x]["first_pick"] = "Bob"
+            first_pick += 1
         return self.individual_bets
 
 
@@ -285,6 +296,7 @@ file_path = Path.cwd() / "data" / "betData.csv"
 results_file_path = Path.cwd() / "data"
 
 if __name__ == "__main__":
+    """to test: python betData.py"""
     bets = []
     race_dates = set()
     # print(f"race_dates = {type(race_dates)}")
@@ -306,6 +318,7 @@ if __name__ == "__main__":
                     driver=data.DRIVER,  # type: ignore
                 )
             )
+    print(f"Number of Races = {len(bets) // 2}")
     # for x in sorted(bets):
     #     print(x)
     # create a unique set of race dates
@@ -345,7 +358,14 @@ if __name__ == "__main__":
         03-17-2022 True # file was found
     """
     all_bets = BetData()
+    first_pick = 0
     for x in all_bets.get_bets:
         file_path = Path.cwd() / "data"
         fn = f"{file_path}/*_{x}_.txt*"
-        print(f"{x} {not not glob.glob(fn)}")
+        print(f"{x} Race Data File {fn} Found: {not not glob.glob(fn)}")
+        # if first_pick % 2:
+        #     all_bets[x]["first_pick"] = "Greg"
+        # else:
+        #     all_bets[x]["first_pick"] = "Bob"
+        # first_pick += 1
+        print(all_bets[x])

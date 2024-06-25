@@ -31,7 +31,14 @@
             <span class="badge bg-dark">{{ b.race_name[0:8] }}:&nbsp</span>
           </td>
           <td>
-            <span class="badge badge-pill {{ b.greg.badge_color }}">{{ b.greg.driver_name }}</span>
+            <span class="badge badge-pill {{ b.greg.badge_color }}">
+              {% if b.first_pick == 'Greg' %}
+                {{ b.greg.first_pick }}
+                *{{ b.greg.driver_name }}
+              {% else %}
+                {{ b.greg.driver_name }}
+              {% endif %}
+            </span>
             <span>
               {% if b.greg.beer == 1 %}
                 <img src="../static/beer.png" width="10" height="20" />
@@ -62,14 +69,14 @@
           <span class="badge bg-danger align-center">Cooler:</span>
         </td>
         <td style="font-weight: bolder; font-size: larger">
-          <span class="badge bg-danger align-center">{{ betting_summary.total_beers_owed['Greg'] }}</span>
-          {% for x in range(betting_summary.total_beers_owed['Greg']) %}
+          <span class="badge bg-danger align-center">{{ betting_summary.total_beers_owed.Greg }}</span>
+          {% for x in range(betting_summary.total_beers_owed.Greg) %}
             <img src="../static/beer.png" width="10" height="20" />
           {% endfor %}
         </td>
         <td style="font-weight: bolder; font-size: larger">
-          <span class="badge bg-danger align-center">{{ betting_summary.total_beers_owed['Bob'] }}</span>
-          {% for x in range(betting_summary.total_beers_owed['Bob']) %}
+          <span class="badge bg-danger align-center">{{ betting_summary.total_beers_owed.Bob }}</span>
+          {% for x in range(betting_summary.total_beers_owed.Bob) %}
             <img src="../static/beer.png" width="10" height="20" />
           {% endfor %}
         </td>

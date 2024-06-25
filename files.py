@@ -9,10 +9,10 @@ from time import strptime
 from betData import BetData
 
 DATE_FORMAT = "%m-%d-%Y"
-file_path = Path.home() / "beerme" / "data"
-log_file = Path.home() / "beerme" / "files_log.txt"
+file_path = Path.home() / "beerme" / "logs"
+log_file = Path.home() / "beerme" / "logs" / "files_log.txt"
 if not file_path.exists():
-    file_path = Path.cwd() / "data"
+    file_path = Path.cwd() / "logs"
     log_file = Path.cwd() / "files_log.txt"
 
 
@@ -123,8 +123,10 @@ class ProcessDataFiles:
 
 
 if __name__ == "__main__":
+    print(f"Debugging {__file__} .........")
     p = ProcessDataFiles()
-
+    print(f"ProcessDataFiles: {type(p)}")
     race_results_data = p.read_data_files()
     for x in race_results_data:
-        logging.info(f"files.py->race_results->{x}")
+        logging.debug(f"files.py->race_results->{x}")
+        print(x)
