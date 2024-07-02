@@ -10,15 +10,15 @@ from betData import BetData
 
 DATE_FORMAT = "%m-%d-%Y"
 file_path = Path.home() / "beerme" / "data"
-log_file = Path.home() / "beerme" / "logs" / "files_log.txt"
+log_file = Path.cwd() / "logs" / "files_log.txt"
 if not file_path.exists():
     file_path = Path.cwd() / "data"
-    log_file = Path.cwd() / "files_log.txt"
+    # log_file = Path.cwd() / "files_log.txt"
 
 
 logging.basicConfig(
     filename=log_file,
-    level=logging.DEBUG,
+    level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
     filemode="w",
 )
@@ -31,6 +31,7 @@ class ProcessDataFiles:
     """
 
     def __init__(self):
+        print(f"file_path={file_path}")
         # a list of all race results
         self.race_schedule_results = []
         # print(self.individual_bets)
