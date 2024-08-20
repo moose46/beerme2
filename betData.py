@@ -148,11 +148,11 @@ class BetData:
             "Bob": "Denny Hamlin",
             "badge_color": "bg-success text-light",
         }
-        # self.individual_bets["07-30-2023"] = {
-        #     "Greg": "Ty Gibbs",
-        #     "Bob": "Chase Elliott",
-        #     "badge_color": "bg-success text-light",
-        # }
+        self.individual_bets["08-18-2024"] = {
+            "Greg": "Ryan Blaney",
+            "Bob": "Ross Chastain",
+            "badge_color": "bg-success text-light",
+        }
         # self.individual_bets["08-06-2023"] = {
         #     "Greg": "Ross Chastain",
         #     "Bob": "Kevin Harvick",
