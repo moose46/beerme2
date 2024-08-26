@@ -13,7 +13,10 @@ file_path = Path.home() / "beerme" / "data"
 log_file = Path.cwd() / "logs" / "files_log.txt"
 if not file_path.exists():
     file_path = Path.cwd() / "data"
-    # log_file = Path.cwd() / "files_log.txt"
+    log_file = Path.cwd() / "files_log.txt"
+    if not file_path.exists():
+        print(f"{file_path} Does Not Exist!")
+        exit()
 
 
 logging.basicConfig(
@@ -31,7 +34,8 @@ class ProcessDataFiles:
     """
 
     def __init__(self):
-        print(f"file_path={file_path}")
+
+        print(f"Data file_path={file_path}")
         # a list of all race results
         self.race_schedule_results = []
         # print(self.individual_bets)
