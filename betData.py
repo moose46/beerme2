@@ -153,7 +153,7 @@ class BetData:
             "Bob": "Ross Chastain",
             "badge_color": "bg-success text-light",
         }
-        self.individual_bets["08-24-2024"] = {
+        self.individual_bets["09-08-2024"] = {
             "Greg": "Ryan Blaney",
             "Bob": "William Byron",
             "badge_color": "bg-success text-light",
@@ -163,11 +163,11 @@ class BetData:
             "Bob": "Tyler Reddick",
             "badge_color": "bg-success text-light",
         }
-        # self.individual_bets["08-06-2023"] = {
-        #     "Greg": "Ross Chastain",
-        #     "Bob": "Kevin Harvick",
-        #     "badge_color": "bg-success text-light",
-        # }
+        self.individual_bets["09-08-2024"] = {
+            "Greg": "Joey Logano",
+            "Bob": "Ryan Blaney",
+            "badge_color": "bg-success text-light",
+        }
         # self.individual_bets["08-13-2023"] = {
         #     "Greg": "Shane van Gisbergen",
         #     "Bob": "Daniel Suarez",
