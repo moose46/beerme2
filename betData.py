@@ -173,11 +173,11 @@ class BetData:
             "Bob": "Ryan Blaney",
             "badge_color": "bg-success text-light",
         }
-        # self.individual_bets["08-13-2023"] = {
-        #     "Greg": "Shane van Gisbergen",
-        #     "Bob": "Daniel Suarez",
-        #     "badge_color": "bg-success text-light",
-        # }
+        self.individual_bets["09-15-2024"] = {
+            "Greg": "Kyle Larson",
+            "Bob": "Shane van Gisbergen",
+            "badge_color": "bg-success text-light",
+        }
         # self.individual_bets["08-20-2023"] = {
         #     "Greg": "Michael McDowell",
         #     "Bob": "Chris Buescher",
