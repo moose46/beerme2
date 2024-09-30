@@ -183,11 +183,11 @@ class BetData:
             "Bob": "Kyle Larson",
             "badge_color": "bg-success text-light",
         }
-        # self.individual_bets["08-26-2023"] = {
-        #     "Greg": "Chase Briscoe",
-        #     "Bob": "Ryan Preece",
-        #     "badge_color": "bg-success text-light",
-        # }
+        self.individual_bets["09-28-2024"] = {
+            "Greg": "Ryan Blaney",
+            "Bob": "Denny Hamlin",
+            "badge_color": "bg-success text-light",
+        }
         # self.individual_bets["09-03-2023"] = {
         #     "Greg": "Ricky Stenhouse Jr.",
         #     "Bob": "Michael McDowell",
