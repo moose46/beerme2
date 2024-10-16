@@ -188,16 +188,16 @@ class BetData:
             "Bob": "Denny Hamlin",
             "badge_color": "bg-success text-light",
         }
-        # self.individual_bets["09-03-2023"] = {
-        #     "Greg": "Ricky Stenhouse Jr.",
-        #     "Bob": "Michael McDowell",
-        #     "badge_color": "bg-success text-light",
-        # }
-        # self.individual_bets["09-10-2023"] = {
-        #     "Greg": "Austin Dillon",
-        #     "Bob": "Tyler Reddick",
-        #     "badge_color": "bg-success text-light",
-        # }
+        self.individual_bets["10-06-2024"] = {
+            "Greg": "Joey Logano",
+            "Bob": "Ryan Blaney",
+            "badge_color": "bg-success text-light",
+        }
+        self.individual_bets["10-13-2024"] = {
+            "Greg": "Shane van Gisbergen",
+            "Bob": "AJ Allmendinger",
+            "badge_color": "bg-success text-light",
+        }
         # self.individual_bets["09-16-2023"] = {
         #     "Greg": "Brad Keselowski",
         #     "Bob": "Corey LaJoie",
