@@ -59,66 +59,69 @@ class ProcessDataFiles:
             ]  # get the date from the file name
             print(f"Processing {race_track.capitalize()} - {race_date}")
             # read each file
-            with open(Path(f"{f.parent}/{f.name}"), "r") as file:
-                reader = csv.reader(file, delimiter="\t")
-                # csv file must have header
-                rawResult = namedtuple("rawResult", next(reader), rename=True)
-                # Result = namedtuple('Result', [*rawResult._fields, 'picked_by', 'race_date', 'race_track'])
-                # print(f.name)
-                for row in reader:
-                    # try:
-                    result = rawResult(*row)  # unpack csv data row into the named tuple
-                    # except Exception as e:
-                    #     print(f.name)
-                    logging.info(f"raw result: {result}")
-                    if strptime(race_date, DATE_FORMAT) > strptime(
-                        "01-01-2024", DATE_FORMAT
-                    ):
-                        # logging.info(f"date {race_date} is > 01-01-2024")
-                        # loop through the bets and check for a driver in the results, if found add to the results list
-                        for name in self.individual_bets[
-                            race_date
-                        ]:  # get the bet data for the this race data
-                            # the key [race_date][name] returns the driver name
-                            logging.info(f"name in individual_bets: {name}")
-                            if self.individual_bets[race_date][name] == result.DRIVER:
-                                parts = race_track.split(
-                                    " "
-                                )  # look to see if the filename has spaces in it
-                                capitalized_parts = [
-                                    p.capitalize() for p in parts
-                                ]  # cap first letter(s) of name
-                                # add results of the race and the bet data for this player to the list of results
-                                driver_last_name = result.DRIVER.split(" ")
-                                # martin truex jr., del jr.
-                                if (
-                                    len(driver_last_name) > 2
-                                    and driver_last_name[2] == "Jr."
-                                ):
-                                    del driver_last_name[2]
-                                    # print(driver_last_name)
-                                self.race_schedule_results.append(
-                                    {
-                                        "race_date": race_date,
-                                        "race_track": " ".join(
-                                            [
-                                                word.capitalize()
-                                                for word in race_track.split(" ")
-                                            ]
-                                        ),
-                                        "driver_name": f'{result.DRIVER.split(" ")[len(driver_last_name)-1][:8]} {result.POS}',  # get the last name and trunc it to 8 chars
-                                        "finish": int(result.POS),
-                                        "player_name": name,
-                                        "beers": 1 if int(result.POS) == 0 else 0,
-                                        "car_number": result.CAR,
-                                        "badge_color": self.individual_bets[race_date][
-                                            "badge_color"
-                                        ],
-                                    }
-                                )
-                                # logging.info(f"line 170 = {result}")
-                                # print(result)
-
+            try:
+                with open(Path(f"{f.parent}/{f.name}"), "r") as file:
+                    reader = csv.reader(file, delimiter="\t")
+                    # csv file must have header
+                    rawResult = namedtuple("rawResult", next(reader), rename=True)
+                    # Result = namedtuple('Result', [*rawResult._fields, 'picked_by', 'race_date', 'race_track'])
+                    # print(f.name)
+                    for row in reader:
+                        # try:
+                        result = rawResult(*row)  # unpack csv data row into the named tuple
+                        # except Exception as e:
+                        #     print(f.name)
+                        logging.info(f"raw result: {result}")
+                        if strptime(race_date, DATE_FORMAT) > strptime(
+                            "01-01-2024", DATE_FORMAT
+                        ):
+                            # logging.info(f"date {race_date} is > 01-01-2024")
+                            # loop through the bets and check for a driver in the results, if found add to the results list
+                            for name in self.individual_bets[
+                                race_date
+                            ]:  # get the bet data for the this race data
+                                # the key [race_date][name] returns the driver name
+                                logging.info(f"name in individual_bets: {name}")
+                                if self.individual_bets[race_date][name] == result.DRIVER:
+                                    parts = race_track.split(
+                                        " "
+                                    )  # look to see if the filename has spaces in it
+                                    capitalized_parts = [
+                                        p.capitalize() for p in parts
+                                    ]  # cap first letter(s) of name
+                                    # add results of the race and the bet data for this player to the list of results
+                                    driver_last_name = result.DRIVER.split(" ")
+                                    # martin truex jr., del jr.
+                                    if (
+                                        len(driver_last_name) > 2
+                                        and driver_last_name[2] == "Jr."
+                                    ):
+                                        del driver_last_name[2]
+                                        # print(driver_last_name)
+                                    self.race_schedule_results.append(
+                                        {
+                                            "race_date": race_date,
+                                            "race_track": " ".join(
+                                                [
+                                                    word.capitalize()
+                                                    for word in race_track.split(" ")
+                                                ]
+                                            ),
+                                            "driver_name": f'{result.DRIVER.split(" ")[len(driver_last_name)-1][:8]} {result.POS}',  # get the last name and trunc it to 8 chars
+                                            "finish": int(result.POS),
+                                            "player_name": name,
+                                            "beers": 1 if int(result.POS) == 0 else 0,
+                                            "car_number": result.CAR,
+                                            "badge_color": self.individual_bets[race_date][
+                                                "badge_color"
+                                            ],
+                                        }
+                                    )
+                                    # logging.info(f"line 170 = {result}")
+                                    # print(result)
+            except Exception as e:
+                logging.error(f"Files.py->read_data_files(){e}")
+                continue
         for b in self.race_schedule_results:
             logging.info(f"files.py race_schedule_results ={b}")
         return sorted(

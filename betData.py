@@ -183,7 +183,7 @@ class BetData:
             "Bob": "Kyle Larson",
             "badge_color": "bg-success text-light",
         }
-        self.individual_bets["09-28-2024"] = {
+        self.individual_bets["09-29-2024"] = {
             "Greg": "Ryan Blaney",
             "Bob": "Denny Hamlin",
             "badge_color": "bg-success text-light",
