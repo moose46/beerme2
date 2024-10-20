@@ -10,7 +10,7 @@ from betData import BetData
 
 DATE_FORMAT = "%m-%d-%Y"
 file_path = Path.home() / "beerme" / "data"
-log_file = Path.cwd() / "logs" / "files_log.txt"
+log_file = Path.cwd()  / "files_log.txt"
 if not file_path.exists():
     file_path = Path.cwd() / "data"
     log_file = Path.cwd() / "files_log.txt"
@@ -40,8 +40,8 @@ class ProcessDataFiles:
         self.race_schedule_results = []
         # print(self.individual_bets)
         # creates a class that reads the races results data files
-        data = BetData()
-        self.individual_bets = data.get_bets
+        self.data = BetData()
+        self.individual_bets = self.data.get_bets
         # print(f"{self.individual_bets}")
 
     # @property
@@ -52,13 +52,21 @@ class ProcessDataFiles:
     def read_data_files(self):  # sourcery skip: low-code-quality
         # print("In read_data_files")
         # find all the results for all the races in the data directory that match the results*2023_.txt pattern
-        for f in file_path.glob("results*2024_.txt"):
+        # for f in file_path.glob("results*2024_.txt"):
+        #     race_track = f.stem.split("_")[1]
+        #     race_date = re.findall(r"\d+-\d+-\d+", f.name)[
+        #         0
+        #     ]  # get the date from the file name
+        for bet in self.data.individual_bets:
+            results_file_name = f"results*_{bet}_.txt"
+            for f in file_path.glob(results_file_name):
+                print(f.stem,f.suffix)
             race_track = f.stem.split("_")[1]
-            race_date = re.findall(r"\d+-\d+-\d+", f.name)[
-                0
-            ]  # get the date from the file name
+            race_date = re.findall(r"\d+-\d+-\d+", f.name)[0]
+            # exit()
             print(f"Processing {race_track.capitalize()} - {race_date}")
             # read each file
+            
             try:
                 with open(Path(f"{f.parent}/{f.name}"), "r") as file:
                     reader = csv.reader(file, delimiter="\t")
