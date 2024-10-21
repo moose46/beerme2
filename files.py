@@ -52,45 +52,40 @@ class ProcessDataFiles:
     def read_data_files(self):  # sourcery skip: low-code-quality
         # print("In read_data_files")
         # find all the results for all the races in the data directory that match the results*2023_.txt pattern
-        # for f in file_path.glob("results*2024_.txt"):
-        #     race_track = f.stem.split("_")[1]
-        #     race_date = re.findall(r"\d+-\d+-\d+", f.name)[
-        #         0
-        #     ]  # get the date from the file name
         for bet in self.data.individual_bets:
-            results_file_name = f"results*_{bet}_.txt"
+            race_track = self.individual_bets[bet]["Track"]
+            race_date = bet
+            results_file_name = f"*{bet}*.txt"
+            # print(f"1. Processing {race_track} - {race_date} - {results_file_name}")
             for f in file_path.glob(results_file_name):
-                print(f.stem,f.suffix)
-            race_track = f.stem.split("_")[1]
-            race_date = re.findall(r"\d+-\d+-\d+", f.name)[0]
-            # exit()
-            print(f"Processing {race_track.capitalize()} - {race_date}")
-            # read each file
-            
-            try:
+                # print(f.stem,f.suffix)
+                # print(f"2. Processing {race_track} - {race_date} - {f.parent}/{f.name}")
                 with open(Path(f"{f.parent}/{f.name}"), "r") as file:
                     reader = csv.reader(file, delimiter="\t")
                     # csv file must have header
                     rawResult = namedtuple("rawResult", next(reader), rename=True)
                     # Result = namedtuple('Result', [*rawResult._fields, 'picked_by', 'race_date', 'race_track'])
-                    # print(f.name)
+                    # print(f"open ok {f.name}")
                     for row in reader:
                         # try:
                         result = rawResult(*row)  # unpack csv data row into the named tuple
                         # except Exception as e:
                         #     print(f.name)
-                        logging.info(f"raw result: {result}")
+                        # logging.info(f"raw result: {result}")
+                        # if the date is in 2024
                         if strptime(race_date, DATE_FORMAT) > strptime(
                             "01-01-2024", DATE_FORMAT
                         ):
+                            # print(f"{bet}")
                             # logging.info(f"date {race_date} is > 01-01-2024")
                             # loop through the bets and check for a driver in the results, if found add to the results list
                             for name in self.individual_bets[
                                 race_date
                             ]:  # get the bet data for the this race data
                                 # the key [race_date][name] returns the driver name
-                                logging.info(f"name in individual_bets: {name}")
+                                # print(f"name in individual_bets: {race_date} {name}")
                                 if self.individual_bets[race_date][name] == result.DRIVER:
+                                    # print(f"{race_date} .... {result.DRIVER}")
                                     parts = race_track.split(
                                         " "
                                     )  # look to see if the filename has spaces in it
@@ -127,11 +122,8 @@ class ProcessDataFiles:
                                     )
                                     # logging.info(f"line 170 = {result}")
                                     # print(result)
-            except Exception as e:
-                logging.error(f"Files.py->read_data_files(){e}")
-                continue
-        for b in self.race_schedule_results:
-            logging.info(f"files.py race_schedule_results ={b}")
+        # for b in self.race_schedule_results:
+        #     logging.info(f"files.py race_schedule_results ={b}")
         return sorted(
             self.race_schedule_results,
             key=itemgetter("race_date", "player_name"),
