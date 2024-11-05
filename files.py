@@ -1,5 +1,6 @@
 import csv
 import logging
+import os
 import re
 from collections import defaultdict, namedtuple
 from operator import itemgetter
@@ -10,7 +11,7 @@ from betData import BetData
 
 DATE_FORMAT = "%m-%d-%Y"
 file_path = Path.home() / "beerme" / "data"
-log_file = Path.cwd()  / "files_log.txt"
+log_file = Path.cwd() / "files_log.txt"
 if not file_path.exists():
     file_path = Path.cwd() / "data"
     log_file = Path.cwd() / "files_log.txt"
@@ -56,7 +57,12 @@ class ProcessDataFiles:
             race_track = self.individual_bets[bet]["Track"]
             race_date = bet
             results_file_name = f"*{bet}*.txt"
+
             # print(f"1. Processing {race_track} - {race_date} - {results_file_name}")
+            for race_results_file in file_path.glob(results_file_name):
+                print(f"Checking -> {results_file_name}")
+                if not os.path.isfile(race_results_file):
+                    print(f"Does Not exist -> {results_file_name}")
             for f in file_path.glob(results_file_name):
                 # print(f.stem,f.suffix)
                 # print(f"2. Processing {race_track} - {race_date} - {f.parent}/{f.name}")
@@ -68,7 +74,9 @@ class ProcessDataFiles:
                     # print(f"open ok {f.name}")
                     for row in reader:
                         # try:
-                        result = rawResult(*row)  # unpack csv data row into the named tuple
+                        result = rawResult(
+                            *row
+                        )  # unpack csv data row into the named tuple
                         # except Exception as e:
                         #     print(f.name)
                         # logging.info(f"raw result: {result}")
@@ -84,7 +92,10 @@ class ProcessDataFiles:
                             ]:  # get the bet data for the this race data
                                 # the key [race_date][name] returns the driver name
                                 # print(f"name in individual_bets: {race_date} {name}")
-                                if self.individual_bets[race_date][name] == result.DRIVER:
+                                if (
+                                    self.individual_bets[race_date][name]
+                                    == result.DRIVER
+                                ):
                                     # print(f"{race_date} .... {result.DRIVER}")
                                     parts = race_track.split(
                                         " "
@@ -115,9 +126,9 @@ class ProcessDataFiles:
                                             "player_name": name,
                                             "beers": 1 if int(result.POS) == 0 else 0,
                                             "car_number": result.CAR,
-                                            "badge_color": self.individual_bets[race_date][
-                                                "badge_color"
-                                            ],
+                                            "badge_color": self.individual_bets[
+                                                race_date
+                                            ]["badge_color"],
                                         }
                                     )
                                     # logging.info(f"line 170 = {result}")

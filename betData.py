@@ -237,16 +237,18 @@ class BetData:
             "Track": "Las Vegas Motor Speedway",
             "badge_color": "bg-success text-light",
         }
-        # self.individual_bets["09-16-2023"] = {
-        #     "Greg": "Brad Keselowski",
-        #     "Bob": "Corey LaJoie",
-        #     "badge_color": "bg-success text-light",
-        # }
-        # self.individual_bets["09-24-2023"] = {
-        #     "Greg": "Bubba Wallace",
-        #     "Bob": "Erik Jones",
-        #     "badge_color": "bg-success text-light",
-        # }
+        self.individual_bets["10-27-2024"] = {
+            "Greg": "Tyler Reddick",
+            "Bob": "Christopher Bell",
+            "Track": "Homestead-Miami Speedway",
+            "badge_color": "bg-success text-light",
+        }
+        self.individual_bets["11-03-2024"] = {
+            "Greg": "Ryan Blaney",
+            "Bob": "Martin Truex",
+            "Track": "Martinsville Speedway",
+            "badge_color": "bg-success text-light",
+        }
         # self.individual_bets["10-01-2023"] = {
         #     "Greg": "Riley Herbst",
         #     "Bob": "Brad Keselowski",
