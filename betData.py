@@ -245,7 +245,7 @@ class BetData:
         }
         self.individual_bets["11-03-2024"] = {
             "Greg": "Ryan Blaney",
-            "Bob": "Martin Truex",
+            "Bob": "Martin Truex Jr.",
             "Track": "Martinsville Speedway",
             "badge_color": "bg-success text-light",
         }

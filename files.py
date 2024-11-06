@@ -58,14 +58,19 @@ class ProcessDataFiles:
             race_date = bet
             results_file_name = f"*{bet}*.txt"
 
-            # print(f"1. Processing {race_track} - {race_date} - {results_file_name}")
-            for race_results_file in file_path.glob(results_file_name):
+            print(f"1. Processing {race_track}  - {results_file_name}")
+            found = False
+            for _ in file_path.glob(results_file_name):
+                found = True
+            if not found:
                 print(f"Checking -> {results_file_name}")
-                if not os.path.isfile(race_results_file):
-                    print(f"Does Not exist -> {results_file_name}")
+                if not os.path.isfile(Path(f"{f.parent}/{race_date}.txt")):
+                    print(f"Does Not exist -> {race_date}.txt")
+                    with open(Path(f"{f.parent}/{race_date}.txt"), "w") as file:
+                        pass
             for f in file_path.glob(results_file_name):
                 # print(f.stem,f.suffix)
-                # print(f"2. Processing {race_track} - {race_date} - {f.parent}/{f.name}")
+                print(f"2. Processing {race_track} - {race_date} - {f.parent}/{f.name}")
                 with open(Path(f"{f.parent}/{f.name}"), "r") as file:
                     reader = csv.reader(file, delimiter="\t")
                     # csv file must have header
