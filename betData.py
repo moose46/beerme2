@@ -249,11 +249,12 @@ class BetData:
             "Track": "Martinsville Speedway",
             "badge_color": "bg-success text-light",
         }
-        # self.individual_bets["10-01-2023"] = {
-        #     "Greg": "Riley Herbst",
-        #     "Bob": "Brad Keselowski",
-        #     "badge_color": "bg-success text-light",
-        # }
+        self.individual_bets["11-10-2024"] = {
+            "Greg": "Ryan Blaney",
+            "Bob": "William Byron",
+            "badge_color": "bg-success text-light",
+            "Track": "Phoenix",
+        }
         # self.individual_bets["10-08-2023"] = {
         #     "Greg": "Daniel Suarez",
         #     "Bob": "Ty Gibbs",
