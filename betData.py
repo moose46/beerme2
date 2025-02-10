@@ -28,233 +28,233 @@ class BetData:
     def __init__(self) -> None:
         self.individual_bets = defaultdict()
         # self.individual_bets.setdefault("missing_key")
-        self.individual_bets["02-18-2024"] = {
-            "Greg": "Joey Logano",
-            "Bob": "Chase Elliott",
-            "Track": "Daytona",
-            "badge_color": "bg-warning text-dark",
-        }
-        self.individual_bets["02-25-2024"] = {
-            "Greg": "Kyle Larson",
-            "Bob": "Joey Logano",
-            "Track": "Atlanta",
-            "badge_color": "bg-warning text-dark",
-        }
-        self.individual_bets["03-03-2024"] = {
-            "Greg": "Kyle Larson",
-            "Bob": "William Byron",
-            "Track": "Las Vegas",
-            "badge_color": "bg-warning text-dark",
-        }
+        # self.individual_bets["02-18-2024"] = {
+        #     "Greg": "Joey Logano",
+        #     "Bob": "Chase Elliott",
+        #     "Track": "Daytona",
+        #     "badge_color": "bg-warning text-dark",
+        # }
+        # self.individual_bets["02-25-2024"] = {
+        #     "Greg": "Kyle Larson",
+        #     "Bob": "Joey Logano",
+        #     "Track": "Atlanta",
+        #     "badge_color": "bg-warning text-dark",
+        # }
+        # self.individual_bets["03-03-2024"] = {
+        #     "Greg": "Kyle Larson",
+        #     "Bob": "William Byron",
+        #     "Track": "Las Vegas",
+        #     "badge_color": "bg-warning text-dark",
+        # }
 
-        self.individual_bets["03-10-2024"] = {
-            "Greg": "Ryan Blaney",
-            "Bob": "William Byron",
-            "Track": "Phoenix",
-            "badge_color": "bg-warning text-dark",
-        }
-        self.individual_bets["03-17-2024"] = {
-            "Greg": "Ryan Blaney",
-            "Bob": "Christopher Bell",
-            "Track": "Bristol",
-            "badge_color": "bg-warning text-dark",
-        }
-        self.individual_bets["03-24-2024"] = {
-            "Greg": "Chris Buescher",
-            "Bob": "William Byron",
-            "Track": "Circuit of the Americas",
-            "badge_color": "bg-warning text-dark",
-        }
-        self.individual_bets["03-31-2024"] = {
-            "Greg": "Kyle Larson",
-            "Bob": "Chris Buescher",
-            "Track": "Richmond",
-            "badge_color": "bg-warning text-dark",
-        }
-        # Martinsville
-        self.individual_bets["04-07-2024"] = {
-            "Greg": "Christopher Bell",
-            "Bob": "Martin Truex Jr.",
-            "Track": "Martinsville",
-            "badge_color": "bg-warning text-dark",
-        }
-        # Texas Cota
-        self.individual_bets["04-14-2024"] = {
-            "Greg": "Kyle Larson",
-            "Bob": "William Byron",
-            "Track": "Texas",
-            "badge_color": "bg-warning text-dark",
-        }
-        # Talladega
-        self.individual_bets["04-21-2024"] = {
-            "Greg": "Brad Keselowski",
-            "Bob": "Ryan Blaney",
-            "Track": "Talladega",
-            "badge_color": "bg-warning text-dark",
-        }
-        # # start of can't pick a driver twice
-        self.individual_bets["04-28-2024"] = {
-            "Greg": "Denny Hamlin",
-            "Bob": "William Byron",
-            "Track": "Dover",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["05-05-2024"] = {
-            "Greg": "Kyle Larson",
-            "Bob": "Denny Hamlin",
-            "Track": "Kansas",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["05-12-2024"] = {
-            "Greg": "Martin Truex Jr.",
-            "Bob": "William Byron",
-            "Track": "Darlington",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["05-26-2024"] = {
-            "Greg": "Ryan Blaney",
-            "Bob": "William Byron",
-            "Track": "Charlotte",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["06-02-2024"] = {
-            "Greg": "Joey Logano",
-            "Bob": "Denny Hamlin",
-            "Track": "World Wide Technology Raceway",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["06-09-2024"] = {
-            "Greg": "Chase Elliott",
-            "Bob": "William Byron",
-            "Track": "Sonoma",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["06-16-2024"] = {
-            "Greg": "Denny Hamlin",
-            "Bob": "Christopher Bell",
-            "Track": "Michigan",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["06-23-2024"] = {
-            "Greg": "Kyle Larson",
-            "Bob": "Ryan Blaney",
-            "Track": "New Hampshire",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["06-30-2024"] = {
-            "Greg": "Kyle Larson",
-            "Bob": "Denny Hamlin",
-            "Track": "Nashville",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["07-07-2024"] = {
-            "Greg": "Kyle Larson",
-            "Bob": "Shane van Gisbergen",
-            "Track": "Chicago",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["07-14-2024"] = {
-            "Greg": "Denny Hamlin",
-            "Bob": "William Byron",
-            "Track": "Pocono",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["07-21-2024"] = {
-            "Greg": "Kyle Larson",
-            "Bob": "Denny Hamlin",
-            "Track": "Indy",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["08-11-2024"] = {
-            "Greg": "Christopher Bell",
-            "Bob": "Denny Hamlin",
-            "Track": "Richmond",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["08-18-2024"] = {
-            "Greg": "Ryan Blaney",
-            "Bob": "Ross Chastain",
-            "Track": "Michigan",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["08-24-2024"] = {
-            "Greg": "Ryan Blaney",
-            "Bob": "William Byron",
-            "Track": "Daytona",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["09-08-2024"] = {
-            "Greg": "Ryan Blaney",
-            "Bob": "William Byron",
-            "Track": "Atlanta",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["09-01-2024"] = {
-            "Greg": "Denny Hamlin",
-            "Bob": "Tyler Reddick",
-            "Track": "Darlington",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["09-08-2024"] = {
-            "Greg": "Joey Logano",
-            "Bob": "Ryan Blaney",
-            "Track": "Atlanta",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["09-15-2024"] = {
-            "Greg": "Kyle Larson",
-            "Bob": "Shane van Gisbergen",
-            "Track": "Watkins Glen",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["09-21-2024"] = {
-            "Greg": "Denny Hamlin",
-            "Bob": "Kyle Larson",
-            "Track": "Bristol",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["09-29-2024"] = {
-            "Greg": "Ryan Blaney",
-            "Bob": "Denny Hamlin",
-            "Track": "Kansas",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["10-06-2024"] = {
-            "Greg": "Joey Logano",
-            "Bob": "Ryan Blaney",
-            "Track": "Talladega",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["10-13-2024"] = {
-            "Greg": "Shane van Gisbergen",
-            "Bob": "AJ Allmendinger",
-            "Track": "Charlotte Motor Speedway",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["10-20-2024"] = {
-            "Greg": "Kyle Larson",
-            "Bob": "Tyler Reddick",
-            "Track": "Las Vegas Motor Speedway",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["10-27-2024"] = {
-            "Greg": "Tyler Reddick",
-            "Bob": "Christopher Bell",
-            "Track": "Homestead-Miami Speedway",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["11-03-2024"] = {
-            "Greg": "Ryan Blaney",
-            "Bob": "Martin Truex Jr.",
-            "Track": "Martinsville Speedway",
-            "badge_color": "bg-success text-light",
-        }
-        self.individual_bets["11-10-2024"] = {
-            "Greg": "Ryan Blaney",
-            "Bob": "William Byron",
-            "badge_color": "bg-success text-light",
-            "Track": "Phoenix",
-        }
+        # self.individual_bets["03-10-2024"] = {
+        #     "Greg": "Ryan Blaney",
+        #     "Bob": "William Byron",
+        #     "Track": "Phoenix",
+        #     "badge_color": "bg-warning text-dark",
+        # }
+        # self.individual_bets["03-17-2024"] = {
+        #     "Greg": "Ryan Blaney",
+        #     "Bob": "Christopher Bell",
+        #     "Track": "Bristol",
+        #     "badge_color": "bg-warning text-dark",
+        # }
+        # self.individual_bets["03-24-2024"] = {
+        #     "Greg": "Chris Buescher",
+        #     "Bob": "William Byron",
+        #     "Track": "Circuit of the Americas",
+        #     "badge_color": "bg-warning text-dark",
+        # }
+        # self.individual_bets["03-31-2024"] = {
+        #     "Greg": "Kyle Larson",
+        #     "Bob": "Chris Buescher",
+        #     "Track": "Richmond",
+        #     "badge_color": "bg-warning text-dark",
+        # }
+        # # Martinsville
+        # self.individual_bets["04-07-2024"] = {
+        #     "Greg": "Christopher Bell",
+        #     "Bob": "Martin Truex Jr.",
+        #     "Track": "Martinsville",
+        #     "badge_color": "bg-warning text-dark",
+        # }
+        # # Texas Cota
+        # self.individual_bets["04-14-2024"] = {
+        #     "Greg": "Kyle Larson",
+        #     "Bob": "William Byron",
+        #     "Track": "Texas",
+        #     "badge_color": "bg-warning text-dark",
+        # }
+        # # Talladega
+        # self.individual_bets["04-21-2024"] = {
+        #     "Greg": "Brad Keselowski",
+        #     "Bob": "Ryan Blaney",
+        #     "Track": "Talladega",
+        #     "badge_color": "bg-warning text-dark",
+        # }
+        # # # start of can't pick a driver twice
+        # self.individual_bets["04-28-2024"] = {
+        #     "Greg": "Denny Hamlin",
+        #     "Bob": "William Byron",
+        #     "Track": "Dover",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["05-05-2024"] = {
+        #     "Greg": "Kyle Larson",
+        #     "Bob": "Denny Hamlin",
+        #     "Track": "Kansas",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["05-12-2024"] = {
+        #     "Greg": "Martin Truex Jr.",
+        #     "Bob": "William Byron",
+        #     "Track": "Darlington",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["05-26-2024"] = {
+        #     "Greg": "Ryan Blaney",
+        #     "Bob": "William Byron",
+        #     "Track": "Charlotte",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["06-02-2024"] = {
+        #     "Greg": "Joey Logano",
+        #     "Bob": "Denny Hamlin",
+        #     "Track": "World Wide Technology Raceway",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["06-09-2024"] = {
+        #     "Greg": "Chase Elliott",
+        #     "Bob": "William Byron",
+        #     "Track": "Sonoma",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["06-16-2024"] = {
+        #     "Greg": "Denny Hamlin",
+        #     "Bob": "Christopher Bell",
+        #     "Track": "Michigan",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["06-23-2024"] = {
+        #     "Greg": "Kyle Larson",
+        #     "Bob": "Ryan Blaney",
+        #     "Track": "New Hampshire",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["06-30-2024"] = {
+        #     "Greg": "Kyle Larson",
+        #     "Bob": "Denny Hamlin",
+        #     "Track": "Nashville",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["07-07-2024"] = {
+        #     "Greg": "Kyle Larson",
+        #     "Bob": "Shane van Gisbergen",
+        #     "Track": "Chicago",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["07-14-2024"] = {
+        #     "Greg": "Denny Hamlin",
+        #     "Bob": "William Byron",
+        #     "Track": "Pocono",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["07-21-2024"] = {
+        #     "Greg": "Kyle Larson",
+        #     "Bob": "Denny Hamlin",
+        #     "Track": "Indy",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["08-11-2024"] = {
+        #     "Greg": "Christopher Bell",
+        #     "Bob": "Denny Hamlin",
+        #     "Track": "Richmond",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["08-18-2024"] = {
+        #     "Greg": "Ryan Blaney",
+        #     "Bob": "Ross Chastain",
+        #     "Track": "Michigan",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["08-24-2024"] = {
+        #     "Greg": "Ryan Blaney",
+        #     "Bob": "William Byron",
+        #     "Track": "Daytona",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["09-08-2024"] = {
+        #     "Greg": "Ryan Blaney",
+        #     "Bob": "William Byron",
+        #     "Track": "Atlanta",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["09-01-2024"] = {
+        #     "Greg": "Denny Hamlin",
+        #     "Bob": "Tyler Reddick",
+        #     "Track": "Darlington",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["09-08-2024"] = {
+        #     "Greg": "Joey Logano",
+        #     "Bob": "Ryan Blaney",
+        #     "Track": "Atlanta",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["09-15-2024"] = {
+        #     "Greg": "Kyle Larson",
+        #     "Bob": "Shane van Gisbergen",
+        #     "Track": "Watkins Glen",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["09-21-2024"] = {
+        #     "Greg": "Denny Hamlin",
+        #     "Bob": "Kyle Larson",
+        #     "Track": "Bristol",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["09-29-2024"] = {
+        #     "Greg": "Ryan Blaney",
+        #     "Bob": "Denny Hamlin",
+        #     "Track": "Kansas",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["10-06-2024"] = {
+        #     "Greg": "Joey Logano",
+        #     "Bob": "Ryan Blaney",
+        #     "Track": "Talladega",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["10-13-2024"] = {
+        #     "Greg": "Shane van Gisbergen",
+        #     "Bob": "AJ Allmendinger",
+        #     "Track": "Charlotte Motor Speedway",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["10-20-2024"] = {
+        #     "Greg": "Kyle Larson",
+        #     "Bob": "Tyler Reddick",
+        #     "Track": "Las Vegas Motor Speedway",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["10-27-2024"] = {
+        #     "Greg": "Tyler Reddick",
+        #     "Bob": "Christopher Bell",
+        #     "Track": "Homestead-Miami Speedway",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["11-03-2024"] = {
+        #     "Greg": "Ryan Blaney",
+        #     "Bob": "Martin Truex Jr.",
+        #     "Track": "Martinsville Speedway",
+        #     "badge_color": "bg-success text-light",
+        # }
+        # self.individual_bets["11-10-2024"] = {
+        #     "Greg": "Ryan Blaney",
+        #     "Bob": "William Byron",
+        #     "badge_color": "bg-success text-light",
+        #     "Track": "Phoenix",
+        # }
         # self.individual_bets["10-08-2023"] = {
         #     "Greg": "Daniel Suarez",
         #     "Bob": "Ty Gibbs",
