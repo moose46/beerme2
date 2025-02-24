@@ -73,8 +73,12 @@ class ProcessDataFiles:
                 print(f"2. Processing {race_track} - {race_date} - {f.parent}/{f.name}")
                 with open(Path(f"{f.parent}/{f.name}"), "r") as file:
                     reader = csv.reader(file, delimiter="\t")
-                    # csv file must have header
-                    rawResult = namedtuple("rawResult", next(reader), rename=True)
+                    try:
+                        # csv file must have header
+                        rawResult = namedtuple("rawResult", next(reader), rename=True)
+                    except Exception as e:
+                        print(f"nametuple -> {e}")
+                        exit()
                     # Result = namedtuple('Result', [*rawResult._fields, 'picked_by', 'race_date', 'race_track'])
                     # print(f"open ok {f.name}")
                     for row in reader:
