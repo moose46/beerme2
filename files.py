@@ -52,11 +52,12 @@ class ProcessDataFiles:
 
     def read_data_files(self):  # sourcery skip: low-code-quality
         # print("In read_data_files")
-        # find all the results for all the races in the data directory that match the results*2023_.txt pattern
+        # find all the results for all the races in the data directory that match the 02-02-2023.csv pattern
         for bet in self.data.individual_bets:
             race_track = self.individual_bets[bet]["Track"]
             race_date = bet
-            results_file_name = f"*{bet}*.txt"
+            # Changed name to .csv files
+            results_file_name = f"*{bet}*.csv"
 
             print(f"1. Processing {race_track}  - {results_file_name}")
             found = False
@@ -64,9 +65,9 @@ class ProcessDataFiles:
                 found = True
             if not found:
                 print(f"Checking -> {results_file_name}")
-                if not os.path.isfile(Path(f"{f.parent}/{race_date}.txt")):
-                    print(f"Does Not exist -> {race_date}.txt")
-                    with open(Path(f"{f.parent}/{race_date}.txt"), "w") as file:
+                if not os.path.isfile(Path(f"{f.parent}/{race_date}.csv")):
+                    print(f"Does Not exist -> {race_date}.csv")
+                    with open(Path(f"{f.parent}/{race_date}.csv"), "w") as file:
                         pass
             for f in file_path.glob(results_file_name):
                 # print(f.stem,f.suffix)
