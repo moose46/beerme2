@@ -38,6 +38,13 @@ class BetData:
             "badge_color": "bg-warning text-dark",
         }
 
+        self.individual_bets["03-23-2025"] = {
+            "Greg": "Josh Berry",
+            "Bob": "William Byron",
+            "Track": "Miami",
+            "badge_color": "bg-warning text-dark",
+        }
+
         # # start of can't pick a driver twice
 
     @property
