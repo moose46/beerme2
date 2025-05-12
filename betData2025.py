@@ -74,6 +74,12 @@ class BetData:
             "Track": "Texas",
             "badge_color": "bg-warning text-dark",
         }
+        self.individual_bets["05-11-2025"] = {
+            "Greg": "Kyle Larson",
+            "Bob": "Christopher Bell",
+            "Track": "Kansas",
+            "badge_color": "bg-warning text-dark",
+        }
 
         # # start of can't pick a driver twice
 
