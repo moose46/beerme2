@@ -80,6 +80,24 @@ class BetData:
             "Track": "Kansas",
             "badge_color": "bg-warning text-dark",
         }
+        self.individual_bets["05-25-2025"] = {
+            "Greg": "Christopher Bell",
+            "Bob": "William Byron",
+            "Track": "Charlotte",
+            "badge_color": "bg-warning text-dark",
+        }
+        self.individual_bets["06-01-2025"] = {
+            "Greg": "Denny Hamlin",
+            "Bob": "Ross Chastain",
+            "Track": "Nashville",
+            "badge_color": "bg-warning text-dark",
+        }
+        self.individual_bets["06-08-2025"] = {
+            "Greg": "Kyle Larson",
+            "Bob": "Denny Hamlin",
+            "Track": "Michigan",
+            "badge_color": "bg-warning text-dark",
+        }
 
         # # start of can't pick a driver twice
 
