@@ -116,6 +116,12 @@ class BetData:
             "Track": "Atlanta",
             "badge_color": "bg-warning text-dark",
         }
+        self.individual_bets["07-06-2025"] = {
+            "Greg": "Tyler Reddick",
+            "Bob": "Shane van Gisbergen",
+            "Track": "Chicago",
+            "badge_color": "bg-warning text-dark",
+        }
 
         # # start of can't pick a driver twice
 
