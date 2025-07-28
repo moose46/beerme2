@@ -4,3 +4,7 @@ files_log.txt
 .beer-me2/
 .bash_profile
 .bashrc
+.venv/
+.venv-1/
+.gitignore
+
