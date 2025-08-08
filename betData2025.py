@@ -1,5 +1,6 @@
 from collections import defaultdict, namedtuple
 
+
 class BetData:
     def __getitem__(self, race_date):
         return self.individual_bets[race_date]
@@ -138,6 +139,12 @@ class BetData:
             "Greg": "Kyle Larson",
             "Bob": "William Byron",
             "Track": "Indy",
+            "badge_color": "bg-warning text-dark",
+        }
+        self.individual_bets["08-03-2025"] = {
+            "Greg": "Ryan Blaney",
+            "Bob": "William Byron",
+            "Track": "Iowa",
             "badge_color": "bg-warning text-dark",
         }
 
