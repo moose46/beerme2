@@ -7,10 +7,24 @@ from operator import itemgetter
 from pathlib import Path
 from time import strptime
 
+from flask.cli import F
+
 from betData import BetData
 
 DATE_FORMAT = "%m-%d-%Y"
 file_path = Path.home() / "beerme" / "data"
+beerme2_file_path = (
+    Path()
+    / "Users"
+    / "me"
+    / "Documents"
+    / "VisualCodeSource"
+    / "beerme2_db"
+    / "commissioner"
+    / "scripts"
+    / "csv_data"
+)
+
 log_file = Path.cwd() / "files_log.txt"
 if not file_path.exists():
     file_path = Path.cwd() / "data"
@@ -30,7 +44,7 @@ DriverBet = namedtuple("DriverBet", "date, person_name, driver_name, badge_color
 
 
 class ProcessDataFiles:
-    """_summary_Reads data/results* txt files for the results of all races in the data directory
+    """_summary_Reads data/*.csv files for the results of all races in the data directory
     creates a list of individual race results, but no correlation between two races,except race date
     """
 
@@ -54,6 +68,8 @@ class ProcessDataFiles:
         # print("In read_data_files")
         # find all the results for all the races in the data directory that match the 02-02-2023.csv pattern
         for bet in self.data.individual_bets:
+            # get the track name from the bet data
+            # print(f"bet={bet}")
             race_track = self.individual_bets[bet]["Track"]
             race_date = bet
             # Changed name to .csv files
@@ -61,8 +77,10 @@ class ProcessDataFiles:
 
             print(f"1. Processing {race_track}  - {results_file_name}")
             found = False
+            # check to see if the race results file exists (example: 08-10-2025.csv)
             for _ in file_path.glob(results_file_name):
                 found = True
+            # if the race results file does not exist, create an empty file (example: 08-10-2025.csv)
             if not found:
                 print(f"Checking -> {results_file_name}")
                 if not os.path.isfile(Path(f"{f.parent}/{race_date}.csv")):
@@ -75,10 +93,11 @@ class ProcessDataFiles:
                 with open(Path(f"{f.parent}/{f.name}"), "r") as file:
                     reader = csv.reader(file, delimiter="\t")
                     try:
-                        # csv file must have header
+                        # csv file must have header, could be empty or no data
+                        # create a named tuple with the header names
                         rawResult = namedtuple("rawResult", next(reader), rename=True)
                     except Exception as e:
-                        print(f"nametuple -> {e}")
+                        print(f"Error reading {f.name}: {e}")
                         exit()
                     # Result = namedtuple('Result', [*rawResult._fields, 'picked_by', 'race_date', 'race_track'])
                     # print(f"open ok {f.name}")
