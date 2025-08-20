@@ -2,7 +2,7 @@ POS	DRIVER	CAR	MANUFACTURER	LAPS	START	LED	PTS	BONUS	PENALTY
 1	William Byron	24	Chevrolet	201	5	10	50	10	0
 2	Tyler Reddick	45	Toyota	201	11	0	44	9	0
 3	Jimmie Johnson	84	Toyota	201	40	0	34	0	0
-4	Chase Briscoe	19	Toyota	201	1	4	33	0	0
+4	Chase Briscoe	19	Toyota	201	1	4	33	0	100
 5	John Hunter Nemechek	42	Toyota	201	18	0	34	2	0
 6	Alex Bowman	48	Chevrolet	201	38	11	42	11	0
 7	Ryan Blaney	12	Ford	201	16	23	51	21	0
@@ -23,9 +23,9 @@ POS	DRIVER	CAR	MANUFACTURER	LAPS	START	LED	PTS	BONUS	PENALTY
 22	Corey LaJoie	01	Ford	201	12	10	20	5	0
 23	Austin Dillon	3	Chevrolet	201	15	0	18	4	0
 24	Denny Hamlin	11	Toyota	201	8	6	20	7	0
-25	Cody Ware	51	Ford	200	28	0	12	0	0
+25	Cody Ware	51	Ford	200	28	0	12	0	10
 26	Brad Keselowski	6	Ford	200	34	0	20	9	0
-27	Todd Gilliland	34	Ford	199	14	0	20	10	0
+27	Todd Gilliland	34	Ford	199	14	0	20	10	10
 28	Noah Gragson	4	Ford	198	32	2	9	0	0
 29	Bubba Wallace	23	Toyota	197	3	18	20	12	0
 30	Carson Hocevar	77	Chevrolet	196	33	1	7	0	0
