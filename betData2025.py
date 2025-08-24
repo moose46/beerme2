@@ -156,7 +156,13 @@ class BetData:
         self.individual_bets["08-16-2025"] = {
             "Greg": "Christopher Bell",
             "Bob": "Denny Hamlin",
-            "Track": "Iowa",
+            "Track": "Richmand",
+            "badge_color": "bg-warning text-dark",
+        }
+        self.individual_bets["08-23-2025"] = {
+            "Greg": "Ryan Blaney",
+            "Bob": "Alex Bowman",
+            "Track": "Daytona",
             "badge_color": "bg-warning text-dark",
         }
 
