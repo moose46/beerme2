@@ -177,6 +177,18 @@ class BetData:
             "Track": "St. Louis",
             "badge_color": "bg-warning text-dark",
         }
+        self.individual_bets["09-13-2025"] = {
+            "Greg": "Ryan Blaney",
+            "Bob": "Kyle Larson",
+            "Track": "Bristol",
+            "badge_color": "bg-warning text-dark",
+        }
+        self.individual_bets["09-21-2025"] = {
+            "Greg": "Christopher Bell",
+            "Bob": "Ryan Blaney",
+            "Track": "New Hampshire",
+            "badge_color": "bg-warning text-dark",
+        }
 
         # # start of can't pick a driver twice
 
