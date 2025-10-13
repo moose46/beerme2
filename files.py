@@ -1,13 +1,11 @@
 import csv
 import logging
 import os
-import re
-from collections import defaultdict, namedtuple
+from collections import  namedtuple
 from operator import itemgetter
 from pathlib import Path
 from time import strptime
 
-from flask.cli import F
 
 from betData import BetData
 
@@ -83,10 +81,11 @@ class ProcessDataFiles:
             # if the race results file does not exist, create an empty file (example: 08-10-2025.csv)
             if not found:
                 print(f"Checking -> {results_file_name}")
-                if not os.path.isfile(Path(f"{f.parent}/{race_date}.csv")):
+                if not os.path.isfile(Path(f"{file_path}/{race_date}.csv")):
                     print(f"Does Not exist -> {race_date}.csv")
-                    with open(Path(f"{f.parent}/{race_date}.csv"), "w") as file:
-                        pass
+                    exit()
+                    # with open(Path(f"{f.parent}/{race_date}.csv"), "w") as file:
+                    #     pass
             for f in file_path.glob(results_file_name):
                 # print(f.stem,f.suffix)
                 print(f"2. Processing {race_track} - {race_date} - {f.parent}/{f.name}")
