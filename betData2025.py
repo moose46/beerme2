@@ -214,6 +214,13 @@ class BetData:
             "badge_color": "bg-warning text-dark",
         }
 
+        self.individual_bets["10-26-2025"] = {
+            "Greg": "Kyle Larson",
+            "Bob": "Denny Hamlin",
+            "Track": "Martinsville",
+            "badge_color": "bg-warning text-dark",
+        }
+
         # # start of can't pick a driver twice
 
     @property
