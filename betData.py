@@ -7,7 +7,7 @@ from datetime import date
 from operator import itemgetter
 from pathlib import Path
 from string import capwords
-from betData2025 import BetData
+from betData2026 import BetData
 # datetime in string date_format for may 25 1999
 # input = "2021/05/25"
 
