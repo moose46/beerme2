@@ -33,3 +33,9 @@ class Summary(object):
 
     def __repr__(self) -> str:
         return f"Summary() = \n{self.list_of_individual_bets}\n{self.total_beers_owed}"
+
+    def __main__(self):
+        # to test: python summary.py
+        logging.info(
+            f"summary.py->list_of_individul_bets {self.list_of_individual_bets}"
+        )

@@ -17,12 +17,6 @@ from files import ProcessDataFiles
 from summary import Summary
 from wager import MyWager
 
-# logging.basicConfig(
-#     filename="./bets_log.txt",
-#     level=logging.DEBUG,
-#     format="%(asctime)s - %(levelname)s - %(message)s",
-#     filemode="w",
-# )
 file_path = Path.home() / "beerme" / "data"
 log_file = Path.home() / "beerme" / "logs" / "bets_log.txt"
 if not file_path.exists():
@@ -84,4 +78,6 @@ for date, items in groupby(individual_race_results, key=itemgetter("race_date"))
 # to test: python bets.py
 for l in list_of_individual_bets:
     logging.info(f"bets.py->list_of_individul_bets {l}")
+    print(f"bets.py->list_of_individul_bets {l}")
 betting_summary = Summary(list_of_individual_bets)
+print(f"bets.py->betting_summary {betting_summary}")
