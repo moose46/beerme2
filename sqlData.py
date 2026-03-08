@@ -1,21 +1,37 @@
 import csv
-import sqlite3
 import os
+import sqlite3
 from pathlib import Path
-from betData import BetData
 
+from betData import BetData
 
 DATE_FORMAT = "%m-%d-%Y"
 
 RESULTS_TABLE = """
 create table results (
-date race_date,
-char driver[32],
-integer finish)"""
+race_date text,
+driver char[32],
+finish integer default 0)
+"""
 
 BETS_TABLE = """
-create table bets (date race_date, name char[12], driver char[32])
+create table bets (
+track char[32],
+race_date text,
+greg char[32],
+greg_finish integer default 0,
+bob char[32],
+bob_finish integer default 0,
+badge_color char[32]
+)
 """
+TRACK = 0
+RACE_DATE = 1
+GREG = 2
+GREG_FINISH = 3
+BOB = 4
+BOB_FINISH = 5
+BADGE_COLOR = 6
 
 file_path = Path.home() / "beerme" / "data"
 log_file = Path.cwd() / "files_log.txt"
@@ -41,13 +57,46 @@ class SQLRaceData:
         self.create_tables()
         self.data = BetData()
         self.individual_bets = self.data.get_bets
+        self.insert_bets(self.individual_bets)
         self.read_nascar_csv()
 
     def create_tables(self):
-        self.conn.execute(RESULTS_TABLE)
-
-        self.conn.execute(BETS_TABLE)
+        self.cur.execute(RESULTS_TABLE)
+        self.conn.commit()
+        self.cur.execute(BETS_TABLE)
         print("Tables Created")
+
+    def insert_bets(self, bet_data):
+        for bet in bet_data:
+            self.cur.execute(
+                "insert into bets (race_date, greg, bob, track, badge_color) values (?, ?, ?, ?, ?)",
+                (
+                    bet,
+                    bet_data.get(bet)["Greg"],
+                    bet_data.get(bet)["Bob"],
+                    bet_data.get(bet)["Track"],
+                    bet_data.get(bet)["badge_color"],
+                ),
+            )
+
+    def insert_results(self, race_date, driver, finish):
+        try:
+            self.cur.execute(
+                "insert into results (race_date, driver, finish) values (?, ?, ?)",
+                (
+                    race_date,
+                    driver,
+                    finish,
+                ),
+            )
+        except Exception as e:
+            print(e)
+            return
+        print("Results Inserted")
+
+    def get_results(self):
+        self.cur.execute("select * from results")
+        return self.cur.fetchall()
 
     def read_nascar_csv(self):
         # print("In read_data_files")
@@ -78,13 +127,14 @@ class SQLRaceData:
                 print(f"2. Processing {race_track} - {race_date} - {f.parent}/{f.name}")
                 with open(Path(f"{f.parent}\\{f.name}"), "r") as file:
                     reader = csv.DictReader(file, delimiter="\t")
-                    for row in reader:
-                        print(row)
                     try:
                         # csv file must have header, could be empty or no data
                         # create a named tuple with the header names
                         print(f"3. Processing {race_date}")
-                        data_dict = dict(reader)
+                        # data_dict = list(reader)
+                        for row in reader:
+                            print(f"4. Processing {row}")
+                            self.insert_results(race_date, row["DRIVER"], row["POS"])
 
                     except Exception as e:
                         print(f"Error reading {f.name}: {e}")
@@ -93,3 +143,4 @@ class SQLRaceData:
 
 if __name__ == "__main__":
     db = SQLRaceData()
+    print(db.get_results())
