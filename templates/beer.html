@@ -23,6 +23,9 @@
                 {{ b.greg.driver_name }}
             </div>
             <div class="column col-50">
+                {% if b.greg.beer == 0 %}
+                    0
+                {% endif %}
                 {% if b.greg.beer == 1 %}
                     <img src="../static/beer.png"
                          width="10"
