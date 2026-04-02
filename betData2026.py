@@ -44,6 +44,12 @@ class BetData:
             "Track": "Darlington",
             "badge_color": "bg-warning text-dark",
         }
+        self.individual_bets["03-29-2026"] = {
+            "Greg": "William Byron",
+            "Bob": "Denny Hamlin",
+            "Track": "Martinsville",
+            "badge_color": "bg-warning text-dark",
+        }
 
         # # start of can't pick a driver twice
 

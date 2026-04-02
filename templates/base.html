@@ -13,29 +13,32 @@
 </head>
 <style>
     .row {
-    {#display: flex;#}{#flex-wrap: wrap;#} margin: 0;
+        {#display: flex;#}
+        {#flex-wrap: wrap;#}
+        margin: 0;
     }
-
     .cooler {
         column-width: 150px;
-    {#column-wrap: nowrap;#} text-align: center;
+        {#column-wrap: nowrap;#}
+        text-align: center;
         margin: 0;
-    {#flex: 1;#} flex: 1;
+        {#flex: 1;#}
+        flex: 1;
         padding: 5px;
         font-size: 16px;
         color: #FFB500;
     }
-
     .column {
         flex: 1;
         padding: 5px;
         margin: 0;
-        text-align: center;
+        text-align: left;
         font-size: 14px;
         color: #FFB500;
-    {#border: .5px solid #d5dd15;#}{#border-bottom: #FFB500;#} box-sizing: border-box;
+        {#border: .5px solid #d5dd15;#}
+        {#border-bottom: #FFB500;#}
+    box-sizing: border-box;
     }
-
     .column-right {
         flex: 1;
         padding: 10px;
@@ -44,7 +47,6 @@
         font-size: 10px;
         color: #FFB500;
     }
-
     /* Responsive: stack columns on small screens */
     @media (max-width: 600px) {
         .col-50, .col-33, .column {
@@ -69,22 +71,19 @@
     }
 
     table {
-        text-align: center;
+        text-align: left;
         width: -webkit-fill-available;
     }
 
-    th {
-        text-align: center;
-        color: aliceblue;
-    }
+    td, th {
+  text-align: left; /* Left justify text */
+  padding: 8px;     /* Optional: add spacing */
+}
 
     tr {
     {#text-align: center;#}
     }
 
-    td {
-    {#text-align: center;#}{#width: 200px;#}
-    }
 
     .summary {
         text-align: left;
@@ -97,15 +96,16 @@
     }
 
     .race {
-    {#border: 1px solid #0e61dd;#} font-weight: bold;
-        color: ivory;
-        font-style: italic;
-    {#font-family: "Segoe UI", system-ui, sans-serif;#}
+        {#border: 1px solid #0e61dd;#}
+        font-weight: bold;
+        color: #FFB500;
+        {#font-family: "Segoe UI", system-ui, sans-serif;#}
     }
 
     .player {
         text-align: right;
-    {#border: 1px solid #0e61dd;#} color: #FFB500;
+        {#border: 1px solid #0e61dd;#}
+        color: #FFB500;
     }
 
     .beer {
@@ -197,7 +197,7 @@
       type="image/png"
       href="../static/favicon.ico">
 
-<body style="background: #0042E8">
+<body style="background: #0042E8" margin: 0; font-family: Arial, sans-serif;>
 <div class="container">
 
     <!-- child template -->
