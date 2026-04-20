@@ -1,127 +1,132 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="myDiv">
-        <img alt="beer" src="../static/beer.png" width="20" height="40"/>
-        <span class="display-6 text-light">&nbsp&nbspThe Beer Scoreboard&nbsp&nbsp&nbsp</span>
-        <img src="../static/beer.png" width="20" height="40" alt="glass of beer"/>
+  <div class="myDiv">
+    <img alt="beer" src="../static/beer.png" width="20" height="40" />
+    <span class="display-6 text-light">&nbsp&nbspThe Beer Scoreboard&nbsp&nbsp&nbsp</span>
+    <img src="../static/beer.png" width="20" height="40" alt="glass of beer" />
+  </div>
+  <hr style="color:bisque" />
+  <div class="row">
+    <div class="column col-50">
+      <span class="title">Race</span>
     </div>
-    <hr style="color:bisque"/>
+    <div class="column col-50">
+      <span class="title">Greg</span>
+    </div>
+    <div class="column col-50">
+      <span class="title">Won</span>
+    </div>
+    <div class="column col-50">
+      <span class="title">Bob</span>
+    </div>
+    <div class="column col-50">
+      <span class="title">Won</span>
+    </div>
+  </div>
+
+  {% for b in betting_summary.list_of_individual_bets %}
     <div class="row">
-        <div class="column col-50"><span class="title">Race</span></div>
-        <div class="column col-50"><span class="title">Greg</span></div>
-        <div class="column col-50"><span class="title">Won</span></div>
-        <div class="column col-50"><span class="title">Bob</span></div>
-        <div class="column col-50"><span class="title">Won</span></div>
+      <div class="column race col-50">{{ b.race_name[0:8] }}</div>
+      <div class="column col-50">{{ b.greg.driver_name }}</div>
+      <div class="column col-50">
+        {% if b.greg.beer == 0 %}
+          0
+        {% endif %}
+        {% if b.greg.beer == 1 %}
+          <img src="../static/beer.png" width="10" height="20" alt="" />
+        {% endif %}
+        {% if b.greg.beer == 2 %}
+          <img src="../static/beer.png" width="10" height="20" alt="" />
+          <img src="../static/beer.png" width="10" height="20" alt="" />
+        {% endif %}
+      </div>
+      <div class="column col-50">
+        <span>{{ b.bob.driver_name }}</span>
+      </div>
+      <div class="column col-50">
+        {% if b.bob.beer == 0 %}
+          0
+        {% endif %}
+        {% if b.bob.beer == 1 %}
+          <span><img src="../static/beer.png" width="10" height="20" alt="" /></span>
+        {% endif %}
+        {% if b.bob.beer == 2 %}
+          <img src="../static/beer.png" width="10" height="20" alt="" />
+          <img src="../static/beer.png" width="10" height="20" alt="" />
+        {% endif %}
+      </div>
     </div>
-
-    {% for b in betting_summary.list_of_individual_bets %}
-        <div class="row">
-            <div class="column race col-50">
-                {{ b.race_name[0:8] }}
-            </div>
-            <div class="column col-50">
-                {{ b.greg.driver_name }}
-            </div>
-            <div class="column col-50">
-                {% if b.greg.beer == 0 %}
-                    0
-                {% endif %}
-                {% if b.greg.beer == 1 %}
-                    <img src="../static/beer.png"
-                         width="10"
-                         height="20" alt=""/>
-                {% endif %}
-                {% if b.greg.beer == 2 %}
-                    <img src="../static/beer.png" width="10" height="20" alt=""/>
-                    <img src="../static/beer.png" width="10" height="20" alt=""/>
-                {% endif %}
-
-            </div>
-            <div class="column col-50">
-                <span> {{ b.bob.driver_name }}</span>
-            </div>
-            <div class="column col-50">
-                {% if b.bob.beer == 0 %}
-                    0
-                {% endif %}
-                {% if b.bob.beer == 1 %}
-                    <span> <img src="../static/beer.png" width="10" height="20" alt=""/></span>
-                {% endif %}
-                {% if b.bob.beer == 2 %}
-                    <img src="../static/beer.png" width="10" height="20" alt=""/>
-                    <img src="../static/beer.png" width="10" height="20" alt=""/>
-                {% endif %}
-
-            </div>
-        </div>
-    {% endfor %}
-    <hr style="color:bisque"/>
-    <div class="row">
-        <div><span class="player">Greg:</span>
-            <p class="results badge bg-danger">{{ betting_summary.total_beers_owed.Greg }}</p>
-            {% for x in range(betting_summary.total_beers_owed.Greg) %}
-                <img src="../static/beer.png" width="10" height="20" alt=""/>
-            {% endfor %}
-
-        </div>
+  {% endfor %}
+  <hr style="color:bisque" />
+  <div class="row">
+    <div>
+      <span class="player">Greg:</span>
+      <img src="../static/sad-sad-face.png" width="40" height="40" alt="" />
+      <p class="results badge bg-danger">{{ betting_summary.total_beers_owed.Greg }}</p>
+      {% for x in range(betting_summary.total_beers_owed.Greg) %}
+        <img src="../static/beer.png" width="10" height="20" alt="" />
+      {% endfor %}
     </div>
+  </div>
 
-    <div class="row">
-        <div><span class="player">Bob:&nbsp</span>
-            <p class="results badge bg-danger">{{ betting_summary.total_beers_owed.Bob }}</p>
-            {% for x in range(betting_summary.total_beers_owed.Bob) %}
-                <img src="../static/beer.png" width="10" height="20" alt=""/>
-            {% endfor %}
-
-        </div>
-        <hr/>
-        <table>
-            <tr>
-                <td>
-                    <blockquote class="summary">
-                        <h6>Greg owes 1 <img src="../static/beer.png" width="10" height="20" alt=""/> to Sweeney</h6>
-                        <p>
-                        <h6>Greg owes 1 beer, non-payment interest to Bob &nbsp;<img src="../static/beer.png" width="10"
-                                                                                     height="20" alt=""/></h6>
-
-                        <p>
-                        <h6>
-                            Bob's 2025 Cooler 12:{% for i in range(12) %}
-                            <img src="../static/beer.png" width="10" height="20" alt=""/>
-                        {% endfor %}
-                        </h6>
-                        <p>
-                        <h6>
-                            Greg's 2024 Cooler 11:{% for i in range(11) %}
-                            <img src="../static/beer.png" width="10" height="20" alt=""/>
-                        {% endfor %}
-                        </h6>
-                        <p>
-                        <h6>
-                            Bob's 2023 Cooler 11:{% for i in range(11) %}
-                            <img src="../static/beer.png" width="10" height="20" alt=""/>
-                        {% endfor %}
-                        </h6>
-                        <p>
-                        <h6>
-                            Bob's 2022 Cooler 13:{% for i in range(13) %}
-                            <img src="../static/beer.png" width="10" height="20" alt=""/>
-                        {% endfor %}
-                        </h6>
-                        <p>
-                        <h6>
-                            Bob's 2021 Cooler 6:{% for i in range(6) %}
-                            <img src="../static/beer.png" width="10" height="20" alt=""/>
-                        {% endfor %}
-                        </h6>
-                    </blockquote>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h6 class="text-light">Powered by a Python: ~~~~~~~``</h6>
-                </td>
-            </tr>
-        </table>
+  <div class="row">
+    <div>
+      <span class="player">Bob:&nbsp;&nbsp;</span><img src="../static/happy-smiley-face.png" width="40" height="40" alt="" />
+      <p class="results badge bg-danger">{{ betting_summary.total_beers_owed.Bob }}</p>
+      {% for x in range(betting_summary.total_beers_owed.Bob) %}
+        <img src="../static/beer.png" width="10" height="20" alt="" />
+      {% endfor %}
     </div>
+    <hr />
+    <table>
+      <tr>
+        <td>
+          <blockquote class="summary">
+            <h6>Greg owes 1 <img src="../static/beer.png" width="10" height="20" alt="" /> to Sweeney</h6>
+            <p>
+              <h6>Greg owes 1 beer, non-payment interest to Bob &nbsp;<img src="../static/beer.png" width="10" height="20" alt="" /></h6>
+            </p>
+            <p>
+              <h6>
+                Bob's 2025 Cooler 12:{% for i in range(12) %}
+                  <img src="../static/beer.png" width="10" height="20" alt="" />
+                {% endfor %}
+              </h6>
+            </p>
+            <p>
+              <h6>
+                Greg's 2024 Cooler 11:{% for i in range(11) %}
+                  <img src="../static/beer.png" width="10" height="20" alt="" />
+                {% endfor %}
+              </h6>
+            </p>
+            <p>
+              <h6>
+                Bob's 2023 Cooler 11:{% for i in range(11) %}
+                  <img src="../static/beer.png" width="10" height="20" alt="" />
+                {% endfor %}
+              </h6>
+            </p>
+            <p>
+              <h6>
+                Bob's 2022 Cooler 13:{% for i in range(13) %}
+                  <img src="../static/beer.png" width="10" height="20" alt="" />
+                {% endfor %}
+              </h6>
+            </p>
+            <p>
+              <h6>
+                Bob's 2021 Cooler 6:{% for i in range(6) %}
+                  <img src="../static/beer.png" width="10" height="20" alt="" />
+                {% endfor %}
+              </h6>
+            </p>
+          </blockquote>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+    </table>
+  </div>
 {% endblock %}
