@@ -1,4 +1,4 @@
-from collections import defaultdict, namedtuple
+from collections import defaultdict
 
 
 class BetData:
@@ -66,6 +66,12 @@ class BetData:
             "Greg"       : "Ryan Blaney",
             "Bob"        : "Tyler Reddick",
             "Track"      : "Talladega",
+            "badge_color": "bg-warning text-dark",
+        }
+        self.individual_bets["05-03-2026"] = {
+            "Greg"       : "Denny Hamlin",
+            "Bob"        : "Carson Hocevar",
+            "Track"      : "Texas",
             "badge_color": "bg-warning text-dark",
         }
 
