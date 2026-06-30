@@ -30,7 +30,8 @@
       <div class="column col-50">{{ b.greg.driver_name }}</div>
       <div class="column col-50">
         {% if b.greg.beer == 0 %}
-          0
+                   <img src="../static/sad-sad-face.png" width="20" height="20" alt=""  />
+
         {% endif %}
         {% if b.greg.beer == 1 %}
           <img src="../static/beer.png" width="10" height="20" alt="" />
@@ -45,7 +46,7 @@
       </div>
       <div class="column col-50">
         {% if b.bob.beer == 0 %}
-          0
+          <img src="../static/sad-sad-face.png" width="20" height="20" alt=""  />
         {% endif %}
         {% if b.bob.beer == 1 %}
           <span><img src="../static/beer.png" width="10" height="20" alt="" /></span>
@@ -61,7 +62,22 @@
   <div class="row">
     <div>
       <span class="player">Greg:</span>
-      <img src="../static/sad-sad-face.png" width="40" height="40" alt="" />
+
+
+      {% if betting_summary.total_beers_owed.Greg == 0 %}
+        <img src="../static/sad-sad-face.png" width="40" height="40" alt="" />
+      {% endif %}
+      {% if betting_summary.total_beers_owed.Greg > 0 %}
+        <img src="../static/happy-smiley-face.png" width="40" height="40" alt="" />
+      {% endif %}
+      {% if betting_summary.total_beers_owed.Greg < 0 %}
+        <img src="../static/sad-sad-face.png" width="40" height="40" alt="" />
+      {% endif %}
+      <!-- <img src="../static/happy-smiley-face.png" width="40" height="40" alt="" /> -->
+
+
+
+
       <p class="results badge bg-danger">{{ betting_summary.total_beers_owed.Greg }}</p>
       {% for x in range(betting_summary.total_beers_owed.Greg) %}
         <img src="../static/beer.png" width="10" height="20" alt="" />
@@ -71,7 +87,21 @@
 
   <div class="row">
     <div>
-      <span class="player">Bob:&nbsp;&nbsp;</span><img src="../static/happy-smiley-face.png" width="40" height="40" alt="" />
+      {% if betting_summary.total_beers_owed.Bob == 0 %}
+        <span class="player">Bob:&nbsp;&nbsp;</span><img src="../static/sad-sad-face.png" width="40" height="40" alt="" />
+      {% endif %}
+      {% if betting_summary.total_beers_owed.Bob > 0 %}
+        <span class="player">Bob:&nbsp;&nbsp;</span><img src="../static/happy-smiley-face.png" width="40" height="40" alt="" />
+      {% endif %}
+      {% if betting_summary.total_beers_owed.Bob < 0 %}
+        <!-- <img src="../static/sad-sad-face.png" width="40" height="40" alt="" /> -->
+        <span class="player">Bob:&nbsp;&nbsp;</span><img src="../static/sad-sad-face.png" width="40" height="40" alt="" />
+        {% endif %}
+        
+
+
+
+
       <p class="results badge bg-danger">{{ betting_summary.total_beers_owed.Bob }}</p>
       {% for x in range(betting_summary.total_beers_owed.Bob) %}
         <img src="../static/beer.png" width="10" height="20" alt="" />

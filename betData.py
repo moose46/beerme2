@@ -7,7 +7,9 @@ from datetime import date
 from operator import itemgetter
 from pathlib import Path
 from string import capwords
+
 from betData2026 import BetData
+
 # datetime in string date_format for may 25 1999
 # input = "2021/05/25"
 
@@ -71,7 +73,7 @@ class Bet(object):
         driver: str,
         badge_color="bg-warning text-dark",
     ) -> None:
-        self.race_date = datetime.datetime.strptime(race_date, date_format)
+        self.race_date = datetime.datetime.strptime(race_date, date_format)  # type: ignore
 
         self.track = capwords(track)
         self.player = player

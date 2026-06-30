@@ -63,15 +63,57 @@ class BetData:
             "badge_color": "bg-warning text-dark",
         }
         self.individual_bets["04-26-2026"] = {
-            "Greg"       : "Ryan Blaney",
-            "Bob"        : "Tyler Reddick",
-            "Track"      : "Talladega",
+            "Greg": "Ryan Blaney",
+            "Bob": "Tyler Reddick",
+            "Track": "Talladega",
             "badge_color": "bg-warning text-dark",
         }
         self.individual_bets["05-03-2026"] = {
-            "Greg"       : "Denny Hamlin",
-            "Bob"        : "Carson Hocevar",
-            "Track"      : "Texas",
+            "Greg": "Denny Hamlin",
+            "Bob": "Carson Hocevar",
+            "Track": "Texas",
+            "badge_color": "bg-warning text-dark",
+        }
+        self.individual_bets["05-10-2026"] = {
+            "Greg": "Shane van Gisbergen",
+            "Bob": "Ty Gibbs",
+            "Track": "Watkins Gleen",
+            "badge_color": "bg-warning text-dark",
+        }
+        self.individual_bets["05-24-2026"] = {
+            "Greg": "Denny Hamlin",
+            "Bob": "Ross Chastain",
+            "Track": "Charlotte",
+            "badge_color": "bg-warning text-dark",
+        }
+        self.individual_bets["05-31-2026"] = {
+            "Greg": "Tyler Reddick",
+            "Bob": "Denny Hamlin",
+            "Track": "Nashville",
+            "badge_color": "bg-warning text-dark",
+        }
+        self.individual_bets["06-07-2026"] = {
+            "Greg": "Kyle Larson",
+            "Bob": "Tyler Reddick",
+            "Track": "Michigan",
+            "badge_color": "bg-warning text-dark",
+        }
+        self.individual_bets["06-14-2026"] = {
+            "Greg": "Denny Hamlin",
+            "Bob": "Chase Briscoe",
+            "Track": "Pocono",
+            "badge_color": "bg-warning text-dark",
+        }
+        self.individual_bets["06-21-2026"] = {
+            "Greg": "Connor Zilisch",
+            "Bob": "Shane van Gisbergen",
+            "Track": "Coronado",
+            "badge_color": "bg-warning text-dark",
+        }
+        self.individual_bets["06-28-2026"] = {
+            "Greg": "Shane van Gisbergen",
+            "Bob": "Kyle Larson",
+            "Track": "Sonoma Raceway",
             "badge_color": "bg-warning text-dark",
         }
 
